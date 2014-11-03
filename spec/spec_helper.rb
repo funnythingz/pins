@@ -16,6 +16,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'factory_girl'
+require 'database_cleaner'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -42,6 +43,18 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
