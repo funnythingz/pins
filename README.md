@@ -23,4 +23,4 @@ bower
 % rake bower:install
 ```
 
-&cope; funnythingz
+&copy; funnythingz
