@@ -7,8 +7,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   process :resize_to_fill => [1024, 768]
+
   version :thumb do
     process :resize_to_fill => [300, 300]
+  end
+
+  version :icon do
+    process :resize_to_fit => [100, 100]
   end
 
   def extension_white_list
