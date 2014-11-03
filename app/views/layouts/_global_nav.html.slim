@@ -11,18 +11,14 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
           | pins
       #bs-nav.collapse.navbar-collapse
         ul.nav.navbar-nav
-          - if current_user
-            li
-              = link_to my_path
-                | My Page
           li
             = link_to new_pin_path
               | New
         ul.nav.navbar-nav.navbar-right
           - if current_user
             li
-              = link_to edit_user_registration_path
-                | Config
+              = link_to my_path
+                | My Page
             li
               = link_to logout_path
                 | Logout
