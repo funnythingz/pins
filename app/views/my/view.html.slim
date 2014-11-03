@@ -17,6 +17,11 @@
           - elsif can? :admin, current_user
             |  - admin
 
+    .col-md-4.text-right
+      = link_to new_pin_path, class: 'btn btn-default'
+        i.fa.fa-picture-o
+        | &nbsp;Upload
+
   ul.list-inline
     - @pins.each do |pin|
       li
