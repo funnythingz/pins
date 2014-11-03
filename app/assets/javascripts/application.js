@@ -11,4 +11,6 @@
 // about supported directives.
 //
 //= require turbolinks
+//= require jquery/dist/jquery.min
+//= require underscore/underscore-min
 //= require_tree .
