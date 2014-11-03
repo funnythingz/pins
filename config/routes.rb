@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'pingo#stream'
+  root 'pin#stream'
 
-  # pingo
-  get     '/pingo(.:format)',           to: 'pingo#index',  as: 'pingo_index'
-  post    '/pingo(.:format)',           to: 'pingo#create'
-  get     '/pingo/new(.:format)',       to: 'pingo#new',    as: 'new_pingo'
-  get     '/pingo/:id/edit(.:format)',  to: 'pingo#edit',   as: 'edit_pingo'
-  get     '/pingo/:id(.:format)',       to: 'pingo#show',   as: 'pingo'
-  patch   '/pingo/:id(.:format)',       to: 'pingo#update'
-  delete  '/pingo/:id(.:format)',       to: 'pingo#destroy'
+  # pin
+  get     '/pin(.:format)',           to: 'pin#index',  as: 'pins'
+  post    '/pin(.:format)',           to: 'pin#create'
+  get     '/pin/new(.:format)',       to: 'pin#new',    as: 'new_pin'
+  get     '/pin/:id/edit(.:format)',  to: 'pin#edit',   as: 'edit_pin'
+  get     '/pin/:id(.:format)',       to: 'pin#show',   as: 'pin'
+  patch   '/pin/:id(.:format)',       to: 'pin#update'
+  delete  '/pin/:id(.:format)',       to: 'pin#destroy'
 
 end

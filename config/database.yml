@@ -11,19 +11,19 @@ default: &default
   timeout: 5000
   username: hoge
   password: hoge
-  database: pingo_development
+  database: pins_development
 
 development:
   <<: *default
-  database: pingo_development
+  database: pins_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: pingo_test
+  database: pins_test
 
 production:
   <<: *default
-  database: pingo
+  database: pins
