@@ -9,7 +9,7 @@ default: &default
   encoding: utf8
   pool: 5
   timeout: 5000
-  usrname: hoge
+  username: hoge
   password: hoge
   database: pingo_development
 
