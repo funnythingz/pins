@@ -1,4 +1,5 @@
 .container
   p.copyright
-    | &copy;
-      #{link_to(Settings.site_information.author.name, raw(Settings.site_information.author.url), target: '_blank')}
+    | &copy;&nbsp;
+    = link_to Settings.site_information.author.url, target: '_blank'
+      | #{Settings.site_information.author.name}
