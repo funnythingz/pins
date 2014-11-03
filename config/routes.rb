@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'pingo#stream', as: 'pingo_stream'
+  root 'pingo#stream'
 
   # pingo
   get '/pingo(.:format)', to: 'pingo#index', as: 'pingo_index'
