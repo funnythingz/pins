@@ -3,6 +3,7 @@ class Ability
 
   def initialize(user)
 
+    user ||= User.new
     if user.member?
       can :member, :all
     end

@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  ROLE = {member: 'member'}
+  enum role: {member: 'member', admin: 'admin'}
 
 end
