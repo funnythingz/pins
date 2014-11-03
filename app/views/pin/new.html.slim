@@ -6,7 +6,8 @@
       | #{title}
 
   = simple_form_for(Pin.new, html: {class: 'form-horizontal' }) do |f|
-    = f.input :title, required: true, label: 'title'
-    = f.input :description, as: :text, required: false, label: 'description', input_html: {rows: 5}
+    = f.file_field :image, required: true, label: 'Image'
+    = f.input :title, required: true, label: 'Title'
+    = f.input :description, as: :text, required: false, label: 'Description', input_html: {rows: 5}
     = f.input :user_id, as: :hidden, input_html: {value: @user_id}
     = f.button :submit, class: 'btn btn-primary pull-right'

@@ -36,6 +36,17 @@ class ImageUploader < CarrierWave::Uploader::Base
     "#{Time.now.strftime('%Y%m%d%H%M%S')}.jpg"
   end
 
+  def geometry
+    @geometry ||= get_geometry
+  end
+
+  def get_geometry
+    if @file and File.exists?(@file.file)
+      image = MiniMagick::Image.open(@file.file)
+      geometry = { width: image[:width], height: image[:height] }
+    end
+  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
