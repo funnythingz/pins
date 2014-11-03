@@ -20,7 +20,7 @@ gem 'cancancan'
 
 # form helper
 gem 'enum_help'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc1'
 
 # byStar
 gem 'by_star'
