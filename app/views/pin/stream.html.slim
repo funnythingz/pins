@@ -1,15 +1,7 @@
 - title = 'Stream'
 
-/TODO: デザイン悩み中
 /.container-fluid
 .container
-  p
-    - if can? :member, current_user
-      | login member
-    - elsif can? :admin, current_user
-      | login admin
-    - else
-      | no login
 
   ul.list-inline
     - @stream.each do |pin|
