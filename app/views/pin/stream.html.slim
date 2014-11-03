@@ -1,6 +1,8 @@
 - title = 'Stream'
 
-.container
-  .page-header
-    h1
-      | #{title}
+.container-fluid
+  ul.list-inline
+    - 100.times do
+      li
+        = link_to '#', class: 'thumbnail'
+          = image_tag 'https://placeimg.com/100/100/any', :'data-src' => 'holder.js/100x100', size: '100x100'
