@@ -1,6 +1,10 @@
 class Pin < ActiveRecord::Base
+
   mount_uploader :image, ImageUploader
-  validates :title, :image, presence: true
+
+  validates :title, length: { maximum: 50 }, presence: true
+  validates :description, length: { maximum: 1000}, presence: true
+  validates :image, presence: true
   validate :check_image_dimensions
 
   def check_image_dimensions
