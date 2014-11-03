@@ -3,13 +3,19 @@
 
 .container
 
-  h2
-    | #{title}
-    small
-      - if can? :member, current_user
-        |  - member
-      - elsif can? :admin, current_user
-        |  - admin
+  .row
+    .col-md-8
+      h2
+        small
+          = link_to edit_user_registration_path
+            i.fa.fa-cog.fa-6
+          | &nbsp;
+        | #{title}
+        small
+          - if can? :member, current_user
+            |  - member
+          - elsif can? :admin, current_user
+            |  - admin
 
   ul.list-inline
     - @pins.each do |pin|
