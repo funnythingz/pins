@@ -1,9 +1,10 @@
-- nickname = @my.nickname
+- title = "#{@my.nickname}"
+- provide(:title, title)
 
 .container
 
   h2
-    | #{nickname}'s pins
+    | #{title}
     small
       - if can? :member, current_user
         |  - member
