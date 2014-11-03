@@ -1,6 +1,12 @@
 - title = 'Stream'
 
 .container-fluid
+  p
+    - if can? :member
+      | login member
+    - else
+      | no login
+
   ul.list-inline
     - 100.times do
       li
