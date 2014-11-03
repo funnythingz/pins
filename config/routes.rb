@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root 'pin#stream'
 
   # pin
-  post    '/pin(.:format)',           to: 'pin#create'
+  post    '/pin(.:format)',           to: 'pin#create', as: 'create_pin'
   get     '/pin/new(.:format)',       to: 'pin#new',    as: 'new_pin'
   get     '/pin/:id/edit(.:format)',  to: 'pin#edit',   as: 'edit_pin'
   get     '/pin/:id(.:format)',       to: 'pin#show',   as: 'pin'

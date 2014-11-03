@@ -5,7 +5,7 @@
     h1
       | #{title}
 
-  = simple_form_for(Pin.new, html: {class: 'form-horizontal' }) do |f|
+  = simple_form_for(Pin.new, url: create_pin_path, html: {class: 'form-horizontal' }) do |f|
     = f.file_field :image, required: true, label: 'Image'
     = f.input :title, required: true, label: 'Title'
     = f.input :description, as: :text, required: false, label: 'Description', input_html: {rows: 5}

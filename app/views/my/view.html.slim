@@ -1,2 +1,12 @@
-h1 My#view
-p Find me in app/views/my/view.html.slim
+- title = 'MyPage'
+
+.container
+
+  h2
+    | My Pins
+
+  ul.list-inline
+    - @pins.each do |pin|
+      li
+        = link_to pin_path(pin.id), class: 'thumbnail'
+          = image_tag pin.image.thumb.url, :'data-src' => 'holder.js/300x300', size: '300x300', alt: pin.title
