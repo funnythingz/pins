@@ -8,5 +8,6 @@ class PinController < ApplicationController
   end
 
   def new
+    @user_id
   end
 end

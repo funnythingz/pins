@@ -1,5 +1,6 @@
 .container
   = simple_form_for(Pin.new, html: {class: 'form-horizontal' }) do |f|
-    = f.input :title, required: true
-    = f.input :description, as: :text, required: false
-    = f.input :user_id, as: :hidden
+    = f.input :title, required: true, label: 'title'
+    = f.input :description, as: :text, required: false, label: 'description'
+    = f.input :user_id, as: :hidden, input_html: {value: @user_id}
+    = f.button :submit, class: 'btn btn-primary'
