@@ -17,7 +17,7 @@
       = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
       = f.input :role, :include_blank => false, required: true
     .form-actions
-      = f.button :submit, "Update"
+      = f.button :submit, "Update", class: 'btn btn-default pull-right'
   h3
     | Cancel my account
   p

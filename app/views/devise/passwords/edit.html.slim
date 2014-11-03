@@ -10,5 +10,5 @@
       = f.input :password, label: "New password", required: true, autofocus: true
       = f.input :password_confirmation, label: "Confirm your new password", required: true
     .form-actions
-      = f.button :submit, "Change my password"
+      = f.button :submit, "Change my password", class: 'btn btn-default pull-text'
   = render "devise/shared/links"
