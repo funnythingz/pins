@@ -32,3 +32,5 @@ bower.json
 
 /.idea
 .DS_Store
+
+public/uploads/
