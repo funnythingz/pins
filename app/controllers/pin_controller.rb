@@ -5,7 +5,7 @@ class PinController < ApplicationController
   end
 
   def stream
-
+    @stream = Pin.all
   end
 
   def new
