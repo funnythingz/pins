@@ -34,7 +34,7 @@ bower
 ### form helper
 
 - [simple_form](https://github.com/plataformatec/simple_form)
-- enum_helper
+- [enum_help](https://github.com/zmbacker/enum_help)
 
 ### outh
 
