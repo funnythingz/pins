@@ -1,9 +1,14 @@
-- title = 'MyPage'
+- nickname = @my.nickname
 
 .container
 
   h2
-    | My Pins
+    | #{nickname}'s pins
+    small
+      - if can? :member, current_user
+        |  - member
+      - elsif can? :admin, current_user
+        |  - admin
 
   ul.list-inline
     - @pins.each do |pin|
