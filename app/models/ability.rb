@@ -6,6 +6,8 @@ class Ability
     user ||= User.new
     if user.member?
       can :member, :all
+    elsif user.admin?
+      can :admin, :all
     end
 
     # Define abilities for the passed in user here. For example:

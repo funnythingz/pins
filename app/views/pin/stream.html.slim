@@ -4,6 +4,8 @@
   p
     - if can? :member, current_user
       | login member
+    - elsif can? :admin, current_user
+      | login admin
     - else
       | no login
 
