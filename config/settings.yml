@@ -1,3 +1,6 @@
 site_information:
   title: Pins
   description: Crazy photo streams
+  author:
+    name: funnythingz
+    url: http://www.funnythingz.com
