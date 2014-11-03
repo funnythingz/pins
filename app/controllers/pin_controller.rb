@@ -9,7 +9,7 @@ class PinController < ApplicationController
   end
 
   def show
-    @pin = set_pin.presence
+    @pin = Pin.get_pin(params[:id]).presence
 
     if @pin.nil?
       return redirect_to root_path
@@ -28,7 +28,7 @@ class PinController < ApplicationController
   end
 
   def create
-    @pin = Pin.new(pin_params)
+    @pin = Pin.new(Pin.get_pin_params(params))
 
     respond_to do |format|
       if @pin.save
@@ -37,15 +37,6 @@ class PinController < ApplicationController
         format.html { render :new }
       end
     end
-  end
-
-  private
-  def set_pin
-    @pin = Pin.find_by(id: params[:id])
-  end
-
-  def pin_params
-    params.require(:pin).permit(:title, :description, :image, :user_id)
   end
 
 end
