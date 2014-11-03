@@ -8,6 +8,16 @@ class PinController < ApplicationController
     @stream = Pin.all
   end
 
+  def show
+    @pin = set_pin.presence
+
+    if @pin.nil?
+      return redirect_to root_path
+    else
+      render :show
+    end
+  end
+
   def new
     if current_user
       @user_id = current_user.id
@@ -31,7 +41,7 @@ class PinController < ApplicationController
 
   private
   def set_pin
-    @pin = Pin.find(params[:id])
+    @pin = Pin.find_by(id: params[:id])
   end
 
   def pin_params

@@ -1,0 +1,12 @@
+- title = @pin.title
+
+.container
+  article
+    h1
+      | #{title}
+
+    .text-center.spacing
+      = image_tag @pin.image.url, :'data-src' => 'holder.js/1024x768', size: '1024x768', alt: @pin.title, class: 'img-thumbnail'
+
+    p.lead
+      | #{nl2br @pin.description}
