@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get     '/pin/new(.:format)',       to: 'pin#new',    as: 'new_pin'
   get     '/pin/:id/edit(.:format)',  to: 'pin#edit',   as: 'edit_pin'
   get     '/pin/:id(.:format)',       to: 'pin#show',   as: 'pin'
-  patch   '/pin/:id(.:format)',       to: 'pin#update'
+  put     '/pin/:id(.:format)',       to: 'pin#update'
   delete  '/pin/:id(.:format)',       to: 'pin#destroy'
 
   # my
