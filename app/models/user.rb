@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
 
   enum role: {member: 'member', admin: 'admin'}
 
+  has_many :pin
+
 end
