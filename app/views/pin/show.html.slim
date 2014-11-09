@@ -9,5 +9,12 @@
     .text-center.spacing
       = image_tag @pin.image.url, :'data-src' => 'holder.js/1024x768', size: '1024x768', alt: @pin.title, class: 'img-thumbnail'
 
-    p.lead
-      | #{nl2br @pin.description}
+    .row
+      .col-md-8
+        p.lead
+          | #{nl2br @pin.description}
+      .col-md-4
+        p.text-right
+          | posted by&nbsp;
+          = link_to member_path(@pin.user_id)
+            | #{@user.nickname}

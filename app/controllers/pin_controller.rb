@@ -8,8 +8,9 @@ class PinController < ApplicationController
     @stream = Pin.all
   end
 
-  def show
+  def view
     @pin = Pin.get_pin(params[:id]).presence
+    @user = User.find(@pin.user_id)
 
     if @pin.nil?
       return redirect_to root_path
@@ -20,7 +21,6 @@ class PinController < ApplicationController
 
   def new
     if current_user
-      @user_id = current_user.id
       render :new
     else
       redirect_to login_path
