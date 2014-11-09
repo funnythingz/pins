@@ -10,14 +10,17 @@ Rails.application.routes.draw do
   root 'pin#stream'
 
   # pin
-  post    '/pin(.:format)',           to: 'pin#create', as: 'create_pin'
-  get     '/pin/new(.:format)',       to: 'pin#new',    as: 'new_pin'
-  get     '/pin/:id/edit(.:format)',  to: 'pin#edit',   as: 'edit_pin'
-  get     '/pin/:id(.:format)',       to: 'pin#show',   as: 'pin'
+  post    '/pin(.:format)',           to: 'pin#create',   as: 'create_pin'
+  get     '/pin/new(.:format)',       to: 'pin#new',      as: 'new_pin'
+  get     '/pin/:id/edit(.:format)',  to: 'pin#edit',     as: 'edit_pin'
+  get     '/pin/:id(.:format)',       to: 'pin#show',     as: 'pin'
   put     '/pin/:id(.:format)',       to: 'pin#update'
   delete  '/pin/:id(.:format)',       to: 'pin#destroy'
 
   # my
-  get     '/my',                      to: 'my#view',    as: 'my'
+  get     '/my',                      to: 'my#view',      as: 'my'
+
+  # member
+  get     '/member/:id',                  to: 'member#view',  as: 'member'
 
 end
