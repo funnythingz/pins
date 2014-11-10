@@ -19,3 +19,14 @@ body {
 .minor {
   color: #888;
 }
+
+.config-menu {
+  li {
+    text-align: center;
+
+    .icon-btn {
+      color: #f7f8f9;
+      font-size: 20px;
+    }
+  }
+}

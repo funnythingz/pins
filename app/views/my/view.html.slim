@@ -3,6 +3,16 @@
 
 .container
 
+  - if flash[:success].present?
+    .alert.alert-success role="alert"
+      strong
+        | #{flash[:success]}
+
+  - if flash[:error].present?
+    .alert.alert-error role="alert"
+      strong
+        | #{flash[:error]}
+
   .row
     .col-md-8
       h2
@@ -25,5 +35,5 @@
   ul.list-inline
     - @pins.each do |pin|
       li
-        = link_to pin_path(pin.id), class: 'thumbnail'
+        = link_to edit_pin_path(pin.id), class: 'thumbnail'
           = image_tag pin.image.thumb.url, :'data-src' => 'holder.js/265x265', size: '265x265', alt: pin.title

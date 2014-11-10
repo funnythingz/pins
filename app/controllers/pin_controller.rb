@@ -9,13 +9,23 @@ class PinController < ApplicationController
   end
 
   def view
-    @pin = Pin.get_pin(params[:id]).presence
+    @pin = Pin.get_pin(params[:id]).presence || nil
     @user = User.find(@pin.user_id)
 
     if @pin.nil?
       return redirect_to root_path
     else
-      render :show
+      render :view
+    end
+  end
+
+  def edit
+    @pin = current_user.pin.find(params[:id]).presence || nil
+
+    if @pin.nil?
+      return redirect_to root_path
+    else
+      render :edit
     end
   end
 
@@ -37,6 +47,16 @@ class PinController < ApplicationController
         format.html { render :new }
       end
     end
+  end
+
+  def destroy
+    if current_user.pin.find(params[:id]).destroy
+      flash_message = {success: 'deleted pin'}
+    else
+      flash_message = {error: 'error'}
+    end
+
+    redirect_to my_path, flash: flash_message
   end
 
 end

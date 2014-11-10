@@ -13,4 +13,5 @@
 //= require turbolinks
 //= require jquery/dist/jquery.min
 //= require underscore/underscore-min
+//= require jquery_ujs
 //= require_tree .

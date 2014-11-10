@@ -1,0 +1,28 @@
+- title = @pin.title
+- provide(:title, title)
+
+.container
+  article
+    h1
+      | #{title}
+
+    .row
+      .col-md-11
+        .text-center.spacing
+          = image_tag @pin.image.url, :'data-src' => 'holder.js/1024x768', size: '1024x768', alt: @pin.title, class: 'img-thumbnail'
+      .col-md-1
+        ul.list-unstyled.config-menu
+          li
+            = link_to destroy_pin_path(@pin.id), method: :delete, data: { confirm: '削除してよろしいですか？' }
+              button.btn.btn-default
+                i.fa.fa-trash-o.icon-btn
+
+    .row
+      .col-md-8
+        p.lead
+          | #{nl2br @pin.description}
+      .col-md-4
+        p.text-right
+          | posted by&nbsp;
+          = link_to member_path(@pin.user_id)
+            | #{current_user.nickname}
