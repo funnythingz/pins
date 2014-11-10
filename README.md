@@ -50,7 +50,7 @@ bower
 
 - [rspec-rails](https://github.com/rspec/rspec-rails)
 - [factory_girl_rails](https://github.com/thoughtbot/factory_girl_rails)
-- [faler](https://github.com/stympy/faker)
+- [faker](https://github.com/stympy/faker)
 - [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner)
 
 ### error
