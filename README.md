@@ -57,5 +57,9 @@ bower
 
 - [better_errors](https://github.com/charliesome/better_errors)
 
+### debug
+
+- [pry-byebug](https://github.com/deivid-rodriguez/pry-byebug)
+
 
 &copy; funnythingz
