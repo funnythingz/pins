@@ -35,6 +35,9 @@ gem 'bower-rails'
 gem 'carrierwave'
 gem "mini_magick"
 
+# validation
+gem 'validates_email_format_of'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0.0.beta4'

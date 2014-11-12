@@ -233,6 +233,8 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    validates_email_format_of (1.6.1)
+      i18n
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.0.0.beta4)
@@ -277,4 +279,5 @@ DEPENDENCIES
   turbolinks
   typescript-rails
   uglifier (>= 1.3.0)
+  validates_email_format_of
   web-console (~> 2.0.0.beta4)

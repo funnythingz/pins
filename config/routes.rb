@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   get     '/my',                      to: 'my#view',      as: 'my'
 
   # member
-  get     '/member/:id',                  to: 'member#view',  as: 'member'
+  get     '/member/:id',              to: 'member#view',  as: 'member'
 
 end
