@@ -2,13 +2,21 @@
 - provide(:title, title)
 
 .container
+
   .page-header
     h1
       | #{title}
 
+  - if @errors.present?
+    .alert.alert-danger role="alert"
+      ul
+        - @errors.each do |error|
+          li
+            | #{error[1].first}
+
   = simple_form_for(Pin.new, url: create_pin_path, html: {class: 'form-horizontal' }) do |f|
     = f.file_field :image, required: true, label: 'Image'
     = f.input :title, required: true, label: 'Title'
-    = f.input :description, as: :text, required: false, label: 'Description', input_html: {rows: 5}
+    = f.input :description, as: :text, required: true, label: 'Description', input_html: {rows: 5}
     = f.input :user_id, as: :hidden, input_html: {value: current_user.id}
     = f.button :submit, class: 'btn btn-primary pull-right'

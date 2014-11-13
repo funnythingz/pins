@@ -1,15 +1,11 @@
 class PinController < ApplicationController
 
-  def permit_pingo_params
-    params.require(:pin).permit(:image)
-  end
-
   def stream
     @stream = Pin.all
   end
 
   def view
-    @pin = Pin.get_pin(params[:id]).presence || nil
+    set_pin
     @user = User.find(@pin.user_id)
 
     if @pin.nil?
@@ -31,6 +27,7 @@ class PinController < ApplicationController
 
   def new
     if current_user
+      @errors   = flash[:errors]
       render :new
     else
       redirect_to login_path
@@ -38,13 +35,13 @@ class PinController < ApplicationController
   end
 
   def create
-    @pin = Pin.new(Pin.get_pin_params(params))
+    @pin = Pin.new(permit_params_pin)
 
     respond_to do |format|
       if @pin.save
-        format.html { redirect_to @pin, notice: 'ok' }
+        format.html { redirect_to @pin, flash: { success: 'YEAH!' } }
       else
-        format.html { render :new }
+        format.html { redirect_to new_pin_path, flash: { errors: @pin.errors.messages } }
       end
     end
   end
@@ -57,6 +54,16 @@ class PinController < ApplicationController
     end
 
     redirect_to my_path, flash: flash_message
+  end
+
+  private
+
+  def permit_params_pin
+    params.require(:pin).permit(:title, :description, :image, :user_id)
+  end
+
+  def set_pin
+    @pin = Pin.find(params[:id]).presence || nil
   end
 
 end

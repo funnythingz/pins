@@ -2,6 +2,12 @@
 - provide(:title, title)
 
 .container
+
+  - if flash[:success].present?
+    .alert.alert-success role="alert"
+      strong
+        | #{flash[:success]}
+
   article
     h1
       | #{title}
