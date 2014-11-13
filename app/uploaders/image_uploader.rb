@@ -6,8 +6,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  process :resize_to_limit => [800, 800]
-  process :resize_to_fit => [1024, 768]
+  process :resize_to_limit => [1024, 768]
 
   version :thumb do
     process :resize_to_fill => [265, 265]
@@ -42,10 +41,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def get_geometry
-    if @file and File.exists?(@file.file)
-      image = MiniMagick::Image.open(@file.file)
-      geometry = { width: image[:width], height: image[:height] }
-    end
+    image = MiniMagick::Image.open(@file.file)
+    geometry = { width: image[:width], height: image[:height] }
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
