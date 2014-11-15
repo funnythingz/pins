@@ -2,25 +2,41 @@
 
 ## develop
 
+### requirements
+* ruby 2.0 (or later)
+* bundler
+* node.js
+* npm
+* MySQL (or MariaDB)
+* git
+
 ### setup
 
 bundle
 
 ```
-% bundle install
+% bundle install --path vendor/bundle
+```
+
+database (for development)
+
+```
+mysql -u root -p -e "CREATE DATABASE pins_development;"
+mysql -u root -p -e "CREATE USER 'hoge'@'localhost' IDENTIFIED by 'hoge';"
+mysql -u root -p -e "GRANT ALL ON pins_development.* TO 'hoge'@'localhost';"
 ```
 
 migrate
 
 ```
-% rake db:migrate
-% rake db:test:clone
+% bundle exec rake db:migrate
+% bundle exec rake db:test:clone
 ```
 
 bower
 
 ```
-% rake bower:install
+% bundle exec rake bower:install
 ```
 
 ### gem
@@ -36,7 +52,7 @@ bower
 - [simple_form](https://github.com/plataformatec/simple_form)
 - [enum_help](https://github.com/zmbacker/enum_help)
 
-### outh
+### auth
 
 - [devise](https://github.com/plataformatec/devise)
 - [cancancan](https://github.com/CanCanCommunity/cancancan)
