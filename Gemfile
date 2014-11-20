@@ -35,6 +35,9 @@ gem 'bower-rails'
 gem 'carrierwave'
 gem "mini_magick"
 
+# view helper
+gem 'active_link_to'
+
 # validation
 gem 'validates_email_format_of'
 
