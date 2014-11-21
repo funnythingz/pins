@@ -9,7 +9,7 @@
       = f.input :nickname, required: true
       = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable)
       = f.input :password_confirmation, required: true
-      = f.input :role, :include_blank => false, required: true
+      = f.input :role, as: :hidden, :include_blank => false, required: true, input_html: { value: 'member' }
     .form-actions
       = f.button :submit, "Sign up", class: 'btn btn-default pull-right'
   = render "devise/shared/links"
