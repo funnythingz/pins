@@ -2,27 +2,37 @@
 - provide(:title, title)
 
 .container
-  article
-    h1
-      | #{title}
 
-    .row
-      .col-md-11
-        .text-center.spacing
-          = image_tag @pin.image.url, :'data-src' => 'holder.js/1024x768', size: '1024x768', alt: @pin.title, class: 'img-thumbnail'
-      .col-md-1
-        ul.list-unstyled.config-menu
-          li
-            = link_to destroy_pin_path(@pin.id), method: :delete, data: { confirm: '削除してよろしいですか？' }
-              button.btn.btn-default
-                i.fa.fa-trash-o.icon-btn
+  - if flash[:success].present?
+    .alert.alert-success role="alert"
+      strong
+        | #{flash[:success]}
 
-    .row
-      .col-md-8
-        p.lead
-          | #{nl2br @pin.description}
-      .col-md-4
-        p.text-right
-          | posted by&nbsp;
-          = link_to member_path(@pin.user_id)
-            | #{current_user.nickname}
+  = simple_form_for(@pin, url: update_pin_path, html: {method: :put, :'accept-charset' => 'utf-8'}) do |f|
+    article
+      .row
+        .col-md-11
+          h1
+            = f.input_field :title, class: 'input_title form-control'
+        .col-md-1
+
+      .row
+        .col-md-11
+          .text-center.spacing
+            = image_tag @pin.image.url, :'data-src' => 'holder.js/1024x768', size: '1024x768', alt: @pin.title, class: 'img-thumbnail'
+        .col-md-1
+          ul.list-unstyled.config-menu
+            li.spacing
+              = link_to pin_path, target: '_blank', method: :get
+                button.btn.btn-default
+                  i.fa.fa-file-image-o
+            li
+              = link_to destroy_pin_path, method: :delete, data: { confirm: '削除してよろしいですか？' }
+                button.btn.btn-default
+                  i.fa.fa-trash-o.icon-btn
+
+      .row
+        .col-md-11
+          = f.input_field :description, as: :text, class: 'input_description form-control', rows: 4
+        .col-md-1
+          = f.button :submit, class: 'btn btn-primary'

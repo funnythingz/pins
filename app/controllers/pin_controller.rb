@@ -46,6 +46,13 @@ class PinController < ApplicationController
     end
   end
 
+  def update
+    pin = Pin.find(params[:id])
+    pin.update(permit_params_pin)
+    flash[:success] = 'updated! YEAH!'
+    redirect_to edit_pin_path
+  end
+
   def destroy
     if current_user.pin.find(params[:id]).destroy
       flash_message = {success: 'deleted pin'}
