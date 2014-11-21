@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :pin
 
+  validates :nickname, uniqueness: true
+  validates :role, format: { with: /member/, on: :create }
+
 end
