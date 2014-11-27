@@ -33,7 +33,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{Time.now.strftime('%Y%m%d%H%M%S')}.jpg"
+    "#{secure_token}.#{file.extension}" if original_filename.present?
   end
 
   def geometry
@@ -42,7 +42,13 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def get_geometry
     image = MiniMagick::Image.open(@file.file)
-    geometry = { width: image[:width], height: image[:height] }
+    { width: image[:width], height: image[:height] }
+  end
+
+  protected
+  def secure_token
+    token = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(token) or model.instance_variable_set(token, SecureRandom.uuid)
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
