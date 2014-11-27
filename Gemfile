@@ -5,7 +5,7 @@ gem 'mysql2'
 gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'compass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'typescript-rails'
+gem 'typescript-rails', '~> 0.4.2'
 gem 'slim-rails'
 
 gem 'turbolinks'
