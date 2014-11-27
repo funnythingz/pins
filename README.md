@@ -3,7 +3,7 @@
 ## develop
 
 ### requirements
-* ruby 2.0 (or later)
+* ruby 2.1 (or later)
 * bundler
 * node.js
 * npm
@@ -29,14 +29,14 @@ mysql -u root -p -e "GRANT ALL ON pins_development.* TO 'hoge'@'localhost';"
 migrate
 
 ```
-% bundle exec rake db:migrate
-% bundle exec rake db:test:clone
+% rake db:migrate
+% rake db:test:clone
 ```
 
 bower
 
 ```
-% bundle exec rake bower:install
+% rake bower:install
 ```
 
 ### gem
