@@ -15,18 +15,18 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
         ul.nav.navbar-nav.navbar-right
           - if current_user
             li
-              = link_to my_path
+              = active_link_to my_path, wrap_tag: 'li'
                 i.fa.fa-user
                 | &nbsp;My Page
             li
-              = link_to logout_path
+              = active_link_to logout_path, wrap_tag: 'li'
                 i.fa.fa-sign-out
                 | &nbsp;Logout
           - else
             li
-              = link_to login_path
+              = active_link_to login_path, wrap_tag: 'li'
                 i.fa.fa-sign-in
                 | &nbsp;Login
             li
-              = link_to new_user_registration_path
+              = active_link_to new_user_registration_path, wrap_tag: 'li'
                 | Sign Up

@@ -49,10 +49,11 @@ bower
 - [slim-rails](https://github.com/slim-template/slim-rails)
 - [bower-rails](https://github.com/42dev/bower-rails)
 
-### form helper
+### view helper
 
 - [simple_form](https://github.com/plataformatec/simple_form)
 - [enum_help](https://github.com/zmbacker/enum_help)
+- [active_link_to](https://github.com/comfy/active_link_to)
 
 ### paginate
 
