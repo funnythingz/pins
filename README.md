@@ -3,7 +3,9 @@
 ## develop
 
 ### requirements
+* rails ~> 4.2.0.rc1
 * ruby 2.1 (or later)
+* rake ~> 10.4.0
 * bundler
 * node.js
 * npm
