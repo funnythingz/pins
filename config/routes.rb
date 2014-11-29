@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
   # devise
-  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: {
+                       sessions:      'users/sessions',
+                       registrations: 'users/registrations'
+                   }
   devise_scope :user do
-    get "/login", to: "devise/sessions#new"
-    get "/logout", to: "devise/sessions#destroy"
+    get "/login",   to: "users/sessions#new"
+    get "/logout",  to: "users/sessions#destroy"
   end
-
-  devise_for :users, controllers: {
-    sessions: 'sessions'
-  }
 
   root 'pin#stream'
 
