@@ -1,4 +1,4 @@
-- title = "#{current_user.nickname}"
+- title = "#{@member.nickname}"
 - provide(:title, title)
 
 .container
@@ -16,15 +16,8 @@
   .row
     .col-md-8
       h2
-        | #{title}&nbsp;
-        small
-          = link_to edit_user_registration_path
-            i.fa.fa-cog.fa-6.minor
-        /small
-          - if can? :member, current_user
-            |  - member
-          - elsif can? :admin, current_user
-            |  - admin
+        | #{title}
+    .col-md-4.text-right
       ul.list-inline
         li
           = link_to '#'
@@ -34,11 +27,6 @@
           = link_to '#'
             .fa.fa-star
             |  11
-
-    .col-md-4.text-right
-      = link_to new_pin_path, class: 'btn btn-default'
-        i.fa.fa-picture-o
-        | &nbsp;Upload
 
   ul.list-inline
     - @pins.each do |pin|

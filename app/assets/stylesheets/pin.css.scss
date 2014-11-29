@@ -9,6 +9,7 @@ body {
 }
 
 .copyright {
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -46,4 +47,18 @@ body {
   color: #f1f2f3;
   width: 100%;
   padding: 5px;
+}
+
+.status-list {
+  margin-top: 33px;
+
+  li {
+    font-size: 160%;
+    text-align: center;
+    margin-bottom: 10px;
+
+    .fa {
+      width: 24px;
+    }
+  }
 }

@@ -1,11 +1,11 @@
 class PinController < ApplicationController
+  before_action :set_pin, only: [:view]
 
   def stream
     @stream = Pin.all
   end
 
   def view
-    set_pin
     @user = User.find(@pin.user_id)
 
     if @pin.nil?
