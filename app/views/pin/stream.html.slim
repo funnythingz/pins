@@ -9,3 +9,6 @@
         .thumbnail
           = link_to pin_path(pin.id)
             = image_tag pin.image.icon.url, :'data-src' => 'holder.js/100x100', size: '100x100', alt: pin.title
+
+  .text-center
+    = paginate @stream
