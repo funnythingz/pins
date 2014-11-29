@@ -2,7 +2,7 @@ class PinController < ApplicationController
   before_action :set_pin, only: [:view]
 
   def stream
-    @stream = Pin.all
+    @stream = Pin.all.order(created_at: 'DESC').page(params[:page]).per(50)
   end
 
   def view
@@ -39,7 +39,7 @@ class PinController < ApplicationController
 
     respond_to do |format|
       if @pin.save
-        format.html { redirect_to @pin, flash: { success: 'YEAH!' } }
+        format.html { redirect_to @pin, flash: { success: 'posted YEAH!' } }
       else
         format.html { redirect_to new_pin_path, flash: { errors: @pin.errors.messages } }
       end
