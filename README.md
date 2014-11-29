@@ -1,6 +1,6 @@
 # pins
 
-## develop
+## for developer
 
 ### requirements
 * rails ~> 4.2.0.rc1
