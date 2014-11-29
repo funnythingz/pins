@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     get "/logout", to: "devise/sessions#destroy"
   end
 
+  devise_for :users, controllers: {
+    sessions: 'sessions'
+  }
+
   root 'pin#stream'
 
   # pin
