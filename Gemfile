@@ -37,7 +37,7 @@ gem 'bower-rails'
 gem 'carrierwave'
 gem "mini_magick"
 
-# view helper
+# my helper
 gem 'active_link_to'
 
 # validation
