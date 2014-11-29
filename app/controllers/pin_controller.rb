@@ -2,16 +2,20 @@ class PinController < ApplicationController
   before_action :set_pin, only: [:view]
 
   def stream
-    @stream = Pin.all.order(created_at: 'DESC').page(params[:page]).per(50)
+    @stream = Pin.where(status: 'public').order(created_at: 'DESC').page(params[:page]).per(50)
   end
 
   def view
     @user = User.find(@pin.user_id)
 
-    if @pin.nil?
-      return redirect_to root_path
-    else
+    if current_user and @pin.present?
       render :view
+    else
+      if @pin.present? and is_public? @pin
+        render :view
+      else
+        return redirect_to root_path
+      end
     end
   end
 
@@ -66,11 +70,15 @@ class PinController < ApplicationController
   private
 
   def permit_params_pin
-    params.require(:pin).permit(:title, :description, :image, :user_id)
+    params.require(:pin).permit(:title, :description, :image, :user_id, :status)
   end
 
   def set_pin
     @pin = Pin.find(params[:id]).presence || nil
+  end
+
+  def is_public?(pin)
+    pin.status.eql? 'public'
   end
 
 end

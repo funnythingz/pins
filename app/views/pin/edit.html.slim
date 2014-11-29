@@ -15,7 +15,7 @@
           h1
             = f.input_field :title, class: 'input_title form-control'
         .col-md-1
-          ul.status-list.list-unstyled
+          ul.count-list.list-unstyled
             li
               = link_to '#'
                 .fa.fa-thumb-tack
@@ -44,4 +44,6 @@
         .col-md-11
           = f.input_field :description, as: :text, class: 'input_description form-control', rows: 4
         .col-md-1
+          .status-list
+            = f.input_field :status, collection: [['public', 'public'], ['private', 'private']], as: :select, item_wrapper_tag: 'li', required: true, prompt: true, class: 'form-control'
           = f.button :submit, class: 'btn btn-primary'

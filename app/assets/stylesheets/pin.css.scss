@@ -49,7 +49,7 @@ body {
   padding: 5px;
 }
 
-.status-list {
+.count-list {
   margin-top: 33px;
 
   li {
@@ -61,4 +61,12 @@ body {
       width: 24px;
     }
   }
+}
+
+.status-list {
+  margin-bottom: 20px;
+}
+
+.full {
+  width: 100%;
 }

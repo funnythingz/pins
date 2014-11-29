@@ -10,7 +10,13 @@
 
   article
     h1
-      | #{title}
+      .row
+        .col-md-11
+          | #{title}
+        .col-md-1.text-right
+          - if @pin.status.eql? 'private'
+            small
+              .fa.fa-key
     .text-center.spacing
       = image_tag @pin.image.url, :'data-src' => 'holder.js/1024x768', size: '1024x768', alt: @pin.title, class: 'img-thumbnail'
 
