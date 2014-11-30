@@ -76,7 +76,7 @@ class PinController < ApplicationController
   end
 
   def set_pin
-    @pin = Pin.find(params[:id]).presence || nil
+    @pin = PinDecorator.find(params[:id]).decorate.presence || nil
   end
 
   def is_public?(pin)
