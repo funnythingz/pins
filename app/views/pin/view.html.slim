@@ -18,7 +18,7 @@
             small
               .fa.fa-key
     .text-center.spacing
-      = image_tag @pin.image.url, :'data-src' => 'holder.js/1024x768', size: '1024x768', alt: @pin.title, class: 'img-thumbnail'
+      = image_tag @pin.image.url, :'data-src' => "holder.js/#{@pin.image.geometry[:width]}x#{@pin.image.geometry[:height]}", size: "#{@pin.image.geometry[:width]}x#{@pin.image.geometry[:height]}", alt: @pin.title, class: 'img-thumbnail'
 
     .row
       .col-md-12
