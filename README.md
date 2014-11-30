@@ -55,6 +55,10 @@ bower
 - [enum_help](https://github.com/zmbacker/enum_help)
 - [active_link_to](https://github.com/comfy/active_link_to)
 
+### decorate
+
+- [draper](https://github.com/drapergem/draper)
+
 ### paginate
 
 - [kaminari](https://github.com/amatsuda/kaminari)
