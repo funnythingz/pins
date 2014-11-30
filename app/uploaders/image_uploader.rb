@@ -41,8 +41,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def get_geometry
-    image = MiniMagick::Image.open(@file.file)
-    { width: image[:width], height: image[:height] }
+    if @file.present?
+      image = MiniMagick::Image.open(@file.file)
+      { width: image[:width], height: image[:height] }
+    end
   end
 
   protected

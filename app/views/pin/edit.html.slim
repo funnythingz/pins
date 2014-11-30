@@ -11,10 +11,10 @@
   = simple_form_for(@pin, url: update_pin_path, html: {method: :put, :'accept-charset' => 'utf-8'}) do |f|
     article
       .row
-        .col-md-11
+        .col-md-10
           h1
             = f.input_field :title, class: 'input_title form-control'
-        .col-md-1
+        .col-md-2
           ul.count-list.list-unstyled
             li
               = link_to '#'
@@ -26,24 +26,24 @@
                 |  2
 
       .row
-        .col-md-11
+        .col-md-10
           .text-center.spacing
-            = image_tag @pin.image.url, :'data-src' => 'holder.js/1024x768', size: '1024x768', alt: @pin.title, class: 'img-thumbnail'
-        .col-md-1
+            = image_tag @pin.image.url, :'data-src' => "holder.js/#{@pin.image.geometry[:width]}x#{@pin.image.geometry[:height]}", size: "#{@pin.image.geometry[:width]}x#{@pin.image.geometry[:height]}", alt: @pin.title, class: 'img-thumbnail'
+        .col-md-2
           ul.list-unstyled.config-menu
             li.spacing
               = link_to pin_path, target: '_blank', method: :get
                 button.btn.btn-default
-                  i.fa.fa-file-image-o
+                  i.fa.fa-link
             li
               = link_to destroy_pin_path, method: :delete, data: { confirm: '削除してよろしいですか？' }
                 button.btn.btn-default
                   i.fa.fa-trash-o.icon-btn
 
       .row
-        .col-md-11
+        .col-md-10
           = f.input_field :description, as: :text, class: 'input_description form-control', rows: 4
-        .col-md-1
+        .col-md-2
           .status-list
             = f.input_field :status, collection: [['public', 'public'], ['private', 'private']], as: :select, item_wrapper_tag: 'li', required: true, prompt: true, class: 'form-control'
-          = f.button :submit, class: 'btn btn-primary'
+          = f.button :submit, class: 'btn-block btn-default'

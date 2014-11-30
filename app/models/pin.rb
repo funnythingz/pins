@@ -15,7 +15,9 @@ class Pin < ActiveRecord::Base
   validate :check_image_dimensions
 
   def check_image_dimensions
-    Rails.logger.info "Image upload dimensions: #{image.geometry[:width]}x#{image.geometry[:height]}"
-    errors.add :image, "#{IMAGE_MIN_WIDTH}x#{IMAGE_MIN_HEIGHT}ピクセル以上のサイズの画像をアップロードしてください" if image.geometry[:width] < IMAGE_MIN_WIDTH || image.geometry[:height] < IMAGE_MIN_HEIGHT
+    if image.geometry.present?
+      Rails.logger.info "Image upload dimensions: #{image.geometry[:width]}x#{image.geometry[:height]}"
+      errors.add :image, "#{IMAGE_MIN_WIDTH}x#{IMAGE_MIN_HEIGHT}ピクセル以上のサイズの画像をアップロードしてください" if image.geometry[:width] < IMAGE_MIN_WIDTH || image.geometry[:height] < IMAGE_MIN_HEIGHT
+    end
   end
 end
