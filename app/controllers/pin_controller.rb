@@ -40,6 +40,7 @@ class PinController < ApplicationController
 
   def create
     @pin = Pin.new(permit_params_pin)
+    @pin.user_id = current_user.id
 
     respond_to do |format|
       if @pin.save

@@ -18,5 +18,5 @@
     = f.file_field :image, required: true, label: 'Image'
     = f.input :title, required: true, label: 'Title'
     = f.input :description, as: :text, required: true, label: 'Description', input_html: {rows: 5}
-    = f.input :user_id, as: :hidden, input_html: {value: current_user.id}
+    = f.input :status, collection: [['public', 'public'], ['private', 'private']], as: :select, item_wrapper_tag: 'li', required: true, prompt: false
     = f.button :submit, class: 'btn btn-primary pull-right'
