@@ -17,6 +17,31 @@
           - if @pin.status.eql? 'private'
             small
               .fa.fa-key
+    .share-buttons
+      ul.list-inline.text-right
+        li.twitter
+          a.twitter-share-button data-url="#{@url}" href="https://twitter.com/share"
+            | Tweet
+          javascript:
+            window.twttr = (function (d, s, id) {
+              var t, js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) {
+                return
+              }
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+              return window.twttr || (t = {
+                        _e: [], ready: function (f) {
+                          t._e.push(f)
+                        }
+                      })
+            }(document, "script", "twitter-wjs"));
+        li.hatebu
+          a.hatena-bookmark-button data-hatena-bookmark-layout="simple-balloon" data-hatena-bookmark-title="#{@pin.title}" href="http://b.hatena.ne.jp/entry/#{url_encode @url}" title="このエントリーをはてなブックマークに追加"
+            img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style=("border: none;") width="20"
+          script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript"
     .text-center.spacing
       = image_tag @pin.image.url, :'data-src' => "holder.js/#{@pin.image.geometry[:width]}x#{@pin.image.geometry[:height]}", size: "#{@pin.image.geometry[:width]}x#{@pin.image.geometry[:height]}", alt: @pin.title, class: 'img-thumbnail'
 

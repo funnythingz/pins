@@ -1,5 +1,6 @@
 class PinController < ApplicationController
   before_action :set_pin, only: [:view]
+  before_action :set_url, only: [:view]
 
   def stream
     @stream = Pin.where(status: 'public').order(created_at: 'DESC').page(params[:page]).per(50)
@@ -82,4 +83,7 @@ class PinController < ApplicationController
     pin.status.eql? 'public'
   end
 
+  def set_url
+    @url = request.original_url
+  end
 end
