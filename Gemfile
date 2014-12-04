@@ -60,6 +60,9 @@ end
 
 group :development do
   gem "better_errors"
+  gem 'quiet_assets'
+  gem 'rack-mini-profiler'
+  gem 'tapp'
 end
 
 group :test do
