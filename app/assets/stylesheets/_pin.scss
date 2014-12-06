@@ -70,3 +70,36 @@ body {
 .full {
   width: 100%;
 }
+
+.action-list {
+  .stars {
+    margin-left: 20px;
+  }
+}
+
+.tip {
+  border: solid 1px #fff;
+  margin-left: 10px;
+  padding: 2px 8px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #fff;
+  position: relative;
+  vertical-align: bottom;
+  color: #345;
+
+  &::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 7px;
+    left: -5px;
+    background-color: #fff;
+    @include rotate(45deg);
+  }
+
+  &:hover {
+    color: #345;
+  }
+}
