@@ -1,5 +1,4 @@
-- title = "#{@member.nickname}"
-- provide(:title, title)
+- provide(:title, @member.nickname)
 
 .container
 
@@ -15,38 +14,24 @@
 
   .row
     .col-md-12
-      /TODO: つくってる
-      .hero-area style="background-image: url(#{@pins.first.image.url})"
-        .thumbnail
-          = image_tag @pins[2].image.icon.url, :'data-src' => 'holder.js/100x100', size: '100x100', alt: @member.nickname
-        h1.nickname
-          | #{title}
-        .status-list
-          ul.list-inline
-            li
-              = link_to '#'
-                .fa.fa-thumb-tack
-                |  99
-            li
-              = link_to '#'
-                .fa.fa-star
-                |  11
+      = render partial: 'hero_area'
 
   ul.list-inline
     - @pins.each do |pin|
-      li
-        .thumbnail
-          = link_to edit_pin_path(pin.id)
-            = image_tag pin.image.thumb.url, :'data-src' => 'holder.js/265x265', size: '265x265', alt: pin.title
-          .caption
-            p
-              = pin.title
-            ul.list-inline
-              li
-                = link_to '#'
-                  .fa.fa-thumb-tack
-                  |  3
-              li
-                = link_to '#'
-                  .fa.fa-star
-                  |  2
+      - if pin.decorate.is_public?
+        li
+          .thumbnail
+            = link_to pin_path(pin.id)
+              = image_tag pin.image.thumb.url, :'data-src' => 'holder.js/265x265', size: '265x265', alt: pin.title
+            .caption
+              p
+                = pin.title
+              ul.list-inline
+                li
+                  = link_to '#'
+                    .fa.fa-thumb-tack
+                    |  dummy
+                li
+                  = link_to '#'
+                    .fa.fa-star
+                    |  #{pin.favorite.count}

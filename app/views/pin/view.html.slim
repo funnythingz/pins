@@ -52,11 +52,11 @@
             li.pins
               = link_to '#'
                 .fa.fa-thumb-tack
-                |  3
+                |  dummy
             li.stars
               = link_to '#'
                 .fa.fa-star
-                |  2
+                |  #{@pin.favorite.count}
 
     .row
       .col-md-8

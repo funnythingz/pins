@@ -1,0 +1,16 @@
+/TOOD: hero
+/.hero-area style="background-image: url(#{current_user.profile.hero.url})"
+  .thumbnail
+    = image_tag current_user.profile.avatar.url, :'data-src' => 'holder.js/100x100', size: '100x100', alt: current_user.nickname
+  h1.nickname
+    = current_user.nickname
+  .status-list
+    ul.list-inline
+      li
+        = link_to '#'
+          .fa.fa-thumb-tack
+          |  99
+      li
+        = link_to '#'
+          .fa.fa-star
+          |  11

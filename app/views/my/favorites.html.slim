@@ -15,17 +15,18 @@
   .row
     .col-md-12
       = render partial: 'hero_area'
+
   = render partial: 'my_navigation'
 
   ul.list-inline
-    - @pins.each do |pin|
+    - @favorites.each do |favorite|
       li
         .thumbnail
-          = link_to edit_pin_path(pin.id)
-            = image_tag pin.image.thumb.url, :'data-src' => 'holder.js/265x265', size: '265x265', alt: pin.title
+          = link_to pin_path(favorite.pin.id)
+            = image_tag favorite.pin.image.thumb.url, :'data-src' => 'holder.js/265x265', size: '265x265', alt: favorite.pin.title
           .caption
             p
-              = pin.title
+              = favorite.pin.title
             ul.list-inline
               li
                 = link_to '#'
@@ -34,4 +35,4 @@
               li
                 = link_to '#'
                   .fa.fa-star
-                  |  #{pin.favorite.count}
+                  |  #{favorite.pin.favorite.count}
