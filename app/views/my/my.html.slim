@@ -14,27 +14,37 @@
         | #{flash[:error]}
 
   .row
+    .col-md-12
+      /TODO: つくってる
+      .hero-area style="background-image: url(#{@pins.first.image.url})"
+        .thumbnail
+          = image_tag @pins[2].image.icon.url, :'data-src' => 'holder.js/100x100', size: '100x100', alt: current_user.nickname
+        h1.nickname
+          | #{title}
+        .status-list
+          ul.list-inline
+            li
+              = link_to '#'
+                .fa.fa-thumb-tack
+                |  99
+            li
+              = link_to '#'
+                .fa.fa-star
+                |  11
+  .row
     .col-md-8
-      h2
-        | #{title}&nbsp;
-        small
-          = link_to edit_user_registration_path
+      ul.nav.nav-tabs
+        li role="presentation"
+          = active_link_to my_path, wrap_tag: :li
+            | Pins
+        li role="presentation"
+          = active_link_to edit_user_registration_path, wrap_tag: :li
             i.fa.fa-cog.fa-6.minor
-        /small
-          - if can? :member, current_user
-            |  - member
-          - elsif can? :admin, current_user
-            |  - admin
-      ul.list-inline
-        li
-          = link_to '#'
-            .fa.fa-thumb-tack
-            |  99
-        li
-          = link_to '#'
-            .fa.fa-star
-            |  11
-
+            |  config
+        li role="presentation"
+          = active_link_to registration_path(:user), wrap_tag: :li, data: { confirm: "Are you sure?" }, method: :delete
+            i.fa.fa-trash-o.minor
+            |  remove account
     .col-md-4.text-right
       = link_to new_pin_path, class: 'btn btn-default'
         i.fa.fa-picture-o
