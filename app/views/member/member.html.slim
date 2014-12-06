@@ -14,19 +14,23 @@
         | #{flash[:error]}
 
   .row
-    .col-md-8
-      h2
-        | #{title}
-    .col-md-4.text-right
-      ul.list-inline
-        li
-          = link_to '#'
-            .fa.fa-thumb-tack
-            |  99
-        li
-          = link_to '#'
-            .fa.fa-star
-            |  11
+    .col-md-12
+      /TODO: つくってる
+      .hero-area style="background-image: url(#{@pins.first.image.url})"
+        .thumbnail
+          = image_tag @pins[2].image.icon.url, :'data-src' => 'holder.js/100x100', size: '100x100', alt: @member.nickname
+        h1.nickname
+          | #{title}
+        .status-list
+          ul.list-inline
+            li
+              = link_to '#'
+                .fa.fa-thumb-tack
+                |  99
+            li
+              = link_to '#'
+                .fa.fa-star
+                |  11
 
   ul.list-inline
     - @pins.each do |pin|
