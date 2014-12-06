@@ -1,5 +1,4 @@
-- title = @pin.title
-- provide(:title, title)
+- provide(:title, @pin.title)
 
 .container
 
@@ -12,7 +11,7 @@
     h1
       .row
         .col-md-11
-          | #{title}
+          = @pin.title
         .col-md-1.text-right
           - if @pin.is_private?
             small
@@ -48,15 +47,18 @@
 
     .row
       .col-md-12
-          ul.list-inline.text-center
-            li.pins
-              = link_to '#'
-                .fa.fa-thumb-tack
-                |  dummy
-            li.stars
-              = link_to '#'
-                .fa.fa-star
-                |  #{@pin.favorite.count}
+        ul.list-inline.text-center.action-list
+          li.pins
+            = link_to '#', class: 'btn btn-sm btn-info'
+              .fa.fa-thumb-tack
+            = link_to '#', class: 'tip'
+              |  dummy
+          li.stars
+            = link_to '#', class: 'btn btn-sm btn-info'
+              .fa.fa-star
+            = link_to pin_favorites_path, class: 'tip'
+              = @pin.favorite.count
+
 
     .row
       .col-md-8
