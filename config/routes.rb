@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   delete  '/pin/:id(.:format)',       to: 'pin#destroy',  as: 'destroy_pin'
 
   # my
-  get     '/my',                      to: 'my#my',      as: 'my'
+  get     '/my',                      to: 'my#my',        as: 'my'
+  get     '/my/favorites',            to: 'my#favorites', as: 'my_favorites'
 
   # member
   get     '/member/:id',              to: 'member#member',  as: 'member'
