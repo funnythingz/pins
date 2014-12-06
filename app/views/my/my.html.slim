@@ -31,12 +31,18 @@
               = link_to '#'
                 .fa.fa-star
                 |  11
-  .row
+  .row.my-data
     .col-md-8
       ul.nav.nav-tabs
         li role="presentation"
           = active_link_to my_path, wrap_tag: :li
             | Pins
+        li role="presentation"
+          /TODO: Favorites
+          = active_link_to '#', wrap_tag: :li
+            | Favorites
+            span.count
+            | #{current_user.favorite.count}
         li role="presentation"
           = active_link_to edit_user_registration_path, wrap_tag: :li
             i.fa.fa-cog.fa-6.minor
