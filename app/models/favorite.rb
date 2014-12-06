@@ -1,4 +1,4 @@
 class Favorite < ActiveRecord::Base
   belongs_to :user
-  has_one :pin
+  belongs_to :pin
 end

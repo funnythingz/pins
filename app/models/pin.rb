@@ -9,6 +9,7 @@ class Pin < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :favorite
+  has_many :favorite, foreign_key: :pin_id
 
   validates :title, length: { maximum: 50 }, presence: true
   validates :description, length: { maximum: 1000}, presence: true
