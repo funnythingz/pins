@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   enum role: {member: 'member', admin: 'admin'}
 
   has_many :pin
+  has_many :favorite, foreign_key: :user_id
 
   validates :nickname, uniqueness: true
   validates :role, format: { with: /member/, on: :create }

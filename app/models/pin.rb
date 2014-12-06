@@ -8,6 +8,7 @@ class Pin < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   belongs_to :user
+  belongs_to :favorite
 
   validates :title, length: { maximum: 50 }, presence: true
   validates :description, length: { maximum: 1000}, presence: true
