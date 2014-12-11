@@ -15,6 +15,7 @@
             | #{error[1].first}
 
   = simple_form_for(Pin.new, url: create_pin_path, html: {class: 'form-horizontal' }) do |f|
+    /TODO: drag & drop upload
     = f.file_field :image, required: true, label: 'Image'
     = f.input :title, required: true, label: 'Title'
     = f.input :description, as: :text, required: true, label: 'Description', input_html: {rows: 5}
