@@ -23,9 +23,15 @@ bundle
 database (for development)
 
 ```
-mysql -u root -p -e "CREATE DATABASE pins_development;"
-mysql -u root -p -e "CREATE USER 'hoge'@'localhost' IDENTIFIED by 'hoge';"
-mysql -u root -p -e "GRANT ALL ON pins_development.* TO 'hoge'@'localhost';"
+% cp config/database.yml.sample config/database.yml
+```
+
+use MySQL
+
+```
+% mysql -u root -p -e "CREATE DATABASE pins_development;"
+% mysql -u root -p -e "CREATE USER 'hoge'@'localhost' IDENTIFIED by 'hoge';"
+% mysql -u root -p -e "GRANT ALL ON pins_development.* TO 'hoge'@'localhost';"
 ```
 
 migrate
