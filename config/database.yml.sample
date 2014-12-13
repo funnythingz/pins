@@ -1,0 +1,20 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+  username: username
+  password: password
+  database: pins
+
+development:
+  <<: *default
+  database: pins_development
+
+test:
+  <<: *default
+  database: pins_test
+
+production:
+  <<: *default
+  database: pins
