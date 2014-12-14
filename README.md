@@ -30,8 +30,8 @@ use MySQL
 
 ```
 % mysql -u root -p -e "CREATE DATABASE pins_development;"
-% mysql -u root -p -e "CREATE USER 'hoge'@'localhost' IDENTIFIED by 'hoge';"
-% mysql -u root -p -e "GRANT ALL ON pins_development.* TO 'hoge'@'localhost';"
+% mysql -u root -p -e "CREATE USER 'username'@'localhost' IDENTIFIED by 'password';"
+% mysql -u root -p -e "GRANT ALL ON pins_development.* TO 'username'@'localhost';"
 ```
 
 migrate
