@@ -2,20 +2,20 @@
   .col-md-8
     ul.nav.nav-tabs
       li role="presentation"
-        = active_link_to my_path, wrap_tag: :li
+        = active_link_to my_path, wrap_tag: :li, active: :exclusive
           | Pins
       li role="presentation"
-        = active_link_to my_favorites_path, wrap_tag: :li
+        = active_link_to my_favorites_path, wrap_tag: :li, active: :exclusive
           .fa.fa-star
           |  Favorites
           span.count
           | #{current_user.favorite.count}
       li role="presentation"
-        = active_link_to edit_user_registration_path, wrap_tag: :li
+        = active_link_to edit_user_registration_path, wrap_tag: :li, active: :exclusive
           i.fa.fa-cog.fa-6.minor
           |  config
       li role="presentation"
-        = active_link_to registration_path(:user), wrap_tag: :li, data: { confirm: "Are you sure?" }, method: :delete
+        = active_link_to registration_path(:user), wrap_tag: :li, active: :exclusive, data: { confirm: "Are you sure?" }, method: :delete
           i.fa.fa-trash-o.minor
           |  remove account
   .col-md-4.text-right
