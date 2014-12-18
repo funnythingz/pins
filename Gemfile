@@ -42,6 +42,7 @@ gem "mini_magick"
 
 # my helper
 gem 'active_link_to'
+gem 'meta-tags'
 
 # validation
 gem 'validates_email_format_of'
