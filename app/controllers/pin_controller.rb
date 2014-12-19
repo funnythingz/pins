@@ -4,10 +4,12 @@ class PinController < ApplicationController
 
   def stream
     @stream = Pin.where(status: 'public').order(created_at: 'DESC').page(params[:page]).per(50)
+    @site = 'Stream'
   end
 
   def view
     @user = User.find(@pin.user_id)
+    @site = @pin.title
 
     if current_user and @pin.present?
       render :view
@@ -22,6 +24,7 @@ class PinController < ApplicationController
 
   def edit
     @pin = current_user.pin.find(params[:id]).presence || nil
+    @site = "Edit: #{@pin.title}"
 
     if @pin.nil?
       return redirect_to root_path
@@ -31,6 +34,8 @@ class PinController < ApplicationController
   end
 
   def new
+    @site = 'New'
+
     if current_user
       @errors   = flash[:errors]
       render :new

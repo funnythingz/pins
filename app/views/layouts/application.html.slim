@@ -1,9 +1,8 @@
 doctype html
 html
   head
-    title
-      | #{full_title(yield(:title))}
-      | #{Settings.site_information.title}
+
+    = render 'layouts/meta'
 
     /link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
     /link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css" rel="stylesheet"
