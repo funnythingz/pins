@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0.rc3'
-gem 'rake', '~> 10.4.0'
+gem 'rake', '~> 10.4.2'
 gem 'mysql2'
 gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'compass-rails'
