@@ -8,9 +8,17 @@ machine:
   timezone:
     Asia/Tokyo
 
+dependencies:
+  override:
+    - npm install
+    - npm run tsd_install
+    - npm run bower_install
+    - bundle install
+
 test:
   override:
-    - bundle exec rspec spec
+    - bundle exec rake bower:install
+    - bundle exec rake spec
 
 database:
   override:
