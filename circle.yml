@@ -22,5 +22,3 @@ test:
 database:
   override:
     - mv config/database.yml.sample config/database.yml
-    - bundle exec rake db:create db:migrate db:seed --trace
-    - bundle exec gem install rake
