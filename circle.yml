@@ -11,7 +11,6 @@ dependencies:
     - bundle exec rake assets:precompile
 
 test:
-  post:
-    - bundle exec rake spinach:
-      environment:
-        RAILS_ENV: test
+  override:
+    - bundle exec rake bower:install
+    - bundle exec rake spec
