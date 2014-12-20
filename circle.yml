@@ -9,11 +9,6 @@ machine:
     Asia/Tokyo
 
 dependencies:
-  override:
-    - npm install
-    - npm run tsd_install
-    - npm run bower_install
-    - bundle install
 
 test:
   override:
