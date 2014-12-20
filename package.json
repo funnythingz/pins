@@ -6,6 +6,7 @@
   "license": "BSD",
   "devDependencies": {
     "typescript": "",
-    "tsd": ""
+    "tsd": "",
+    "bower": ""
   }
 }
