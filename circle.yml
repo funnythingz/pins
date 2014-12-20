@@ -1,0 +1,17 @@
+machine:
+  ruby:
+    version: 2.1.5
+  node:
+    version: 0.10.33
+  timezone:
+    Asia/Tokyo
+
+dependencies:
+  post:
+    - bundle exec rake assets:precompile
+
+test:
+  post:
+    - bundle exec rake spinach:
+      environment:
+        RAILS_ENV: test
