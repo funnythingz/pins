@@ -7,8 +7,10 @@ machine:
     Asia/Tokyo
 
 dependencies:
-  post:
-    - bundle exec rake assets:precompile
+  override:
+    - npm install
+    - npm run tsd_install
+    - npm run bower_install
 
 test:
   override:
