@@ -1,5 +1,11 @@
 ruby:
   set_meta_tags charset: 'utf-8'
-  set_meta_tags title: "#{Settings.site_information.title} - #{Settings.site_information.description}", site: @site
+  set_meta_tags title: "#{Settings.site_information.title} - #{Settings.site_information.description}", site: @og_site
+  set_meta_tags og: {
+                        title: @og_site,
+                        type: @og_type,
+                        url: @og_url,
+                        image: @og_image
+                }
 
 = display_meta_tags
