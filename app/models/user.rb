@@ -10,7 +10,15 @@ class User < ActiveRecord::Base
   has_many :favorite, foreign_key: :user_id
   has_one :profile, foreign_key: :user_id
 
-  validates :nickname, uniqueness: true
-  validates :role, format: { with: /member/, on: :create }
+  with_options on: :create do
+    validates :nickname, format: { with: /\A[a-z0-9]+\z/ }, uniqueness: true
+    validates :role, format: { with: /member/ }
+  end
 
+  with_options on: :update do
+    validates :nickname, format: { with: /\A[a-z0-9]+\z/ }, uniqueness: true
+    validates :role, format: { with: /member/ }
+  end
+
+  accepts_nested_attributes_for :profile
 end
