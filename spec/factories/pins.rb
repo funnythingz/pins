@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :pin do
-    title Faker::Lorem.sentence
-    description Faker::Lorem.paragraph
+    title Faker::Lorem.word
+    description Faker::Lorem.sentence
     image '/hoge.jpg'
     sequence(:user_id) { |i| i }
   end
