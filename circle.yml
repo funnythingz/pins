@@ -16,8 +16,7 @@ dependencies:
 
 test:
   override:
-    - bundle exec rake bower:install
-    - bundle exec rake spec
+    - bundle exec rspec spec
 
 database:
   override:
