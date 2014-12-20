@@ -8,13 +8,6 @@ machine:
   timezone:
     Asia/Tokyo
 
-dependencies:
-  override:
-    - bundle exec bundle install
-    - npm install
-    - npm run tsd_install
-    - npm run bower_install
-
 test:
   override:
     - bundle exec rspec spec
