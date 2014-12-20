@@ -8,8 +8,6 @@ machine:
   timezone:
     Asia/Tokyo
 
-dependencies:
-
 test:
   override:
     - bundle exec rake bower:install
