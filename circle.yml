@@ -11,8 +11,4 @@ machine:
 test:
   override:
     - bundle exec rake bower:install
-    - bundle exec rspec spec
-
-database:
-  override:
-    - mv config/database.yml.sample config/database.yml
+    - bundle exec rake spec
