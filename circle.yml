@@ -18,3 +18,8 @@ test:
   override:
     - bundle exec rake bower:install
     - bundle exec rake spec
+
+database:
+  override:
+    - mv config/database.yml.sample config/database.yml
+    - bundle exec rake db:create db:migrate db:seed --trace
