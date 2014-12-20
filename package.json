@@ -1,0 +1,11 @@
+{
+  "name": "pins",
+  "version": "",
+  "description": "pins",
+  "author": "funnythingz",
+  "license": "BSD",
+  "devDependencies": {
+    "typescript": "",
+    "tsd": ""
+  }
+}
