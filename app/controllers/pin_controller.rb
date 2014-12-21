@@ -9,6 +9,7 @@ class PinController < ApplicationController
 
   def view
     @user = User.find(@pin.user_id)
+    @is_star = is_star?
 
     if current_user and @pin.present?
       render :view
@@ -89,6 +90,10 @@ class PinController < ApplicationController
 
   def is_public?(pin)
     pin.status.eql? 'public'
+  end
+
+  def is_star?
+    current_user.favorite.find_by(pin_id: params[:id]).present?
   end
 
   def set_url

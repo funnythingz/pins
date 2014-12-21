@@ -52,7 +52,7 @@
             = link_to '#', class: 'tip'
               |  dummy
           li.stars
-            = link_to '#', class: 'btn btn-sm btn-info'
+            = link_to toggle_favorite_path(pin_id: params[:id]), method: :post, class: (@is_star ? 'btn btn-sm btn-info active' : 'btn btn-sm btn-info')
               .fa.fa-star
             = link_to pin_favorites_path, class: 'tip'
               = @pin.favorite.count
