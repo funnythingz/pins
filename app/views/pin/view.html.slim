@@ -60,8 +60,7 @@
 
     .row
       .col-md-8
-        p.lead
-          | #{nl2br @pin.description}
+        = simple_format @pin.description, class: 'lead'
       .col-md-4
         p.text-right
           | posted by&nbsp;
