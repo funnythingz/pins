@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.0.rc3'
+gem 'rails', '~> 4.2.0'
 gem 'rake', '~> 10.4.2'
 gem 'mysql2'
 gem 'sass-rails', '~> 5.0.0.beta1'
@@ -9,7 +9,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'slim-rails'
 
 gem 'turbolinks'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.0.2'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
