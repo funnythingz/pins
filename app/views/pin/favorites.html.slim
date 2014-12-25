@@ -1,0 +1,45 @@
+.container
+
+  article
+    h1
+      .row
+        .col-md-11
+          .fa.fa-star
+          = @pin.favorite.size
+        .col-md-1.text-right
+          - if @pin.is_private?
+            small
+              .fa.fa-key
+    - if @pin.is_public?
+      .share-buttons
+        ul.list-inline.text-right
+          li.twitter
+            a.twitter-share-button data-url="#{@og_url}" href="https://twitter.com/share"
+              | Tweet
+            javascript:
+              window.twttr = (function (d, s, id) {
+                var t, js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                  return
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+                return window.twttr || (t = {
+                          _e: [], ready: function (f) {
+                            t._e.push(f)
+                          }
+                        })
+              }(document, "script", "twitter-wjs"));
+          li.hatebu
+            a.hatena-bookmark-button data-hatena-bookmark-layout="simple-balloon" data-hatena-bookmark-title="#{@pin.title}" href="http://b.hatena.ne.jp/entry/#{url_encode @og_url}" title="このエントリーをはてなブックマークに追加"
+              img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style=("border: none;") width="20"
+            script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript"
+      ul.list-inline
+        - @pin.favorite.each do |favorite|
+          li
+            .thumbnail
+              = link_to member_path(favorite.user.id)
+                /TODO: avator
+                = image_tag favorite.user.profile, :'data-src' => 'holder.js/100x100', size: '100x100', alt: favorite.user.nickname

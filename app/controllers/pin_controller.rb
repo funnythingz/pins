@@ -1,5 +1,5 @@
 class PinController < ApplicationController
-  before_action :set_pin, only: [:view]
+  before_action :set_pin, only: [:view, :favorites]
   before_action :set_url, only: [:view]
 
   def stream
@@ -72,6 +72,11 @@ class PinController < ApplicationController
     end
 
     redirect_to my_path, flash: flash_message
+  end
+
+  def favorites
+    @og_url = pin_favorites_url(@pin.id)
+    @og_site = "#{@pin.title}'s favorites"
   end
 
   private
