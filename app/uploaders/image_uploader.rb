@@ -47,6 +47,14 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
   end
 
+  def fix_exif_rotation
+    manipulate! do |img|
+      img.tap(&:auto_orient)
+    end
+  end
+
+  process :fix_exif_rotation
+
   protected
   def secure_token
     token = :"@#{mounted_as}_secure_token"
