@@ -98,7 +98,11 @@ class PinController < ApplicationController
   end
 
   def is_star?
-    current_user.favorite.find_by(pin_id: params[:id]).present?
+    if current_user.nil?
+      false
+    else
+      current_user.favorite.find_by(pin_id: params[:id]).present?
+    end
   end
 
   def set_url
