@@ -64,6 +64,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rack-mini-profiler'
   gem 'tapp'
+  gem 'quiet_assets'
 end
 
 group :test do
