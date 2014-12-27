@@ -13,18 +13,18 @@ Rails.application.routes.draw do
   root 'pin#stream'
 
   # pin
-  post    '/pin(.:format)',           to: 'pin#create',     as: 'create_pin'
-  get     '/pin/new(.:format)',       to: 'pin#new',        as: 'new_pin'
-  get     '/pin/:id(.:format)',       to: 'pin#view',       as: 'pin'
-  get     '/pin/:id/favorites',       to: 'pin#favorites',  as: 'pin_favorites'
-  get     '/pin/:id/edit',            to: 'pin#edit',       as: 'edit_pin'
-  put     '/pin/:id(.:format)',       to: 'pin#update',     as: 'update_pin'
-  delete  '/pin/:id(.:format)',       to: 'pin#destroy',    as: 'destroy_pin'
+  post    '/pin(.:format)',           to: 'pin#create',       as: 'create_pin'
+  get     '/pin/new(.:format)',       to: 'pin#new',          as: 'new_pin'
+  get     '/pin/:id(.:format)',       to: 'pin#view',         as: 'pin'
+  get     '/pin/:id/favorites',       to: 'pin#favorites',    as: 'pin_favorites'
+  get     '/pin/:id/edit',            to: 'pin#edit',         as: 'edit_pin'
+  put     '/pin/:id(.:format)',       to: 'pin#update',       as: 'update_pin'
+  delete  '/pin/:id(.:format)',       to: 'pin#destroy',      as: 'destroy_pin'
+  post    '/pin/favorite(.:format)',  to: 'pin#put_favorite', as: 'put_favorite'
 
   # my
   get     '/my',                      to: 'my#my',              as: 'my'
   get     '/my/favorites',            to: 'my#favorites',       as: 'my_favorites'
-  post    '/my/toggle_favorite',      to: 'my#toggle_favorite', as: 'toggle_favorite'
 
   # member
   get     '/member/:id',              to: 'member#member',  as: 'member'
