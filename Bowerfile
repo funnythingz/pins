@@ -5,3 +5,4 @@
 
 asset 'jquery'
 asset 'underscore'
+asset 'jquery-pjax'
