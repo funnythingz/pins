@@ -1,0 +1,1 @@
+tsd query jquery underscore -s -a install
