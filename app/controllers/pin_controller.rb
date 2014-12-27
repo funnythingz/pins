@@ -1,6 +1,7 @@
 class PinController < ApplicationController
   before_action :set_pin, only: [:view, :favorites]
   before_action :set_url, only: [:view]
+  before_action :set_favorite, only: [:put_favorite]
 
   def stream
     @stream = Pin.where(status: 'public').order(created_at: 'DESC').page(params[:page]).per(50)
@@ -79,7 +80,20 @@ class PinController < ApplicationController
     @og_site = "#{@pin.title}'s favorites"
   end
 
+  def put_favorite
+    if @favorite.present?
+      @favorite.destroy
+    else
+      Favorite.create(user_id: current_user.id, pin_id: params[:pin_id])
+    end
+    @pin = Pin.find_by(id: params[:pin_id])
+  end
+
   private
+
+  def set_favorite
+    @favorite = current_user.favorite.find_by(pin_id: params[:pin_id])
+  end
 
   def permit_params_pin
     params.require(:pin).permit(:title, :description, :image, :user_id, :status)

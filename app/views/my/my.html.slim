@@ -31,6 +31,6 @@
                   .fa.fa-thumb-tack
                   |  dummy
               li
-                = link_to '#'
+                = link_to pin_favorites_path(pin.id)
                   .fa.fa-star
                   |  #{pin.favorite.size}
