@@ -8,7 +8,6 @@ gem 'compass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'slim-rails'
 
-gem 'turbolinks'
 gem 'jquery-rails', '~> 4.0.2'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc

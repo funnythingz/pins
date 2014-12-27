@@ -62,13 +62,6 @@ GEM
       mime-types (>= 1.16)
     chunky_png (1.3.3)
     coderay (1.1.0)
-    coffee-rails (4.1.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
-    coffee-script (2.3.0)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.8.0)
     columnize (0.9.0)
     compass (1.0.1)
       chunky_png (~> 1.2)
@@ -250,8 +243,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    turbolinks (2.5.3)
-      coffee-rails
     typescript-node (1.1.0)
       typescript-src (~> 1.0.1)
     typescript-rails (0.4.2)
@@ -315,7 +306,6 @@ DEPENDENCIES
   slim-rails
   spring
   tapp
-  turbolinks
   typescript-rails (~> 0.4.2)
   uglifier (>= 1.3.0)
   validates_email_format_of
