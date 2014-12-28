@@ -20,12 +20,12 @@
           span.count
           |  0
       li role="presentation"
-        = active_link_to edit_user_registration_path, wrap_tag: :li, active: :exclusive
-          i.fa.fa-cog.fa-6.minor
+        = active_link_to profile_path, wrap_tag: :li
+          i.fa.fa-user-md
           |  Profile
       li role="presentation"
         = active_link_to registration_path(:user), wrap_tag: :li, active: :exclusive, data: { confirm: "Are you sure?" }, method: :delete
-          i.fa.fa-trash-o.minor
+          i.fa.fa-trash-o
           |  remove account
   .col-md-4.text-right
     = link_to new_pin_path, class: 'btn btn-default'

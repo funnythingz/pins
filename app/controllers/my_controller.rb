@@ -11,4 +11,8 @@ class MyController < ApplicationController
     @og_site = "#{current_user.nickname}'s favorites"
     @favorites = current_user.favorite.order(created_at: :desc)
   end
+
+  def edit_profile
+    @og_site = "Edit profile"
+  end
 end

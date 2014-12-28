@@ -1,14 +1,6 @@
 .container
 
-  - if flash[:success].present?
-    .alert.alert-success role="alert"
-      strong
-        | #{flash[:success]}
-
-  - if flash[:error].present?
-    .alert.alert-error role="alert"
-      strong
-        | #{flash[:error]}
+  = render partial: 'notice'
 
   .row
     .col-md-12
