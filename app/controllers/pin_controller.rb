@@ -15,7 +15,7 @@ class PinController < ApplicationController
     if current_user and @pin.present?
       render :view
     else
-      if @pin.present? and is_public? @pin
+      if @pin.present? and @pin.is_public?
         render :view
       else
         return redirect_to root_path
@@ -76,8 +76,16 @@ class PinController < ApplicationController
   end
 
   def favorites
-    @og_url = pin_favorites_url(@pin.id)
-    @og_site = "#{@pin.title}'s favorites"
+    if @pin.is_public?
+      @og_url = pin_favorites_url(@pin.id)
+      @og_site = "#{@pin.title}'s favorites"
+    else
+      return redirect_to root_path if current_user.nil?
+
+      unless current_user.pin.find_by(id: @pin.id).present?
+        return redirect_to root_path
+      end
+    end
   end
 
   def put_favorite
@@ -100,15 +108,11 @@ class PinController < ApplicationController
   end
 
   def set_pin
-    @pin = PinDecorator.find(params[:id]).decorate.presence || nil
+    @pin = Pin.find_by(id: params[:id]).presence || nil
     @og_site = @pin.title
     @og_url = pin_url(@pin.id)
     @og_type = 'article'
     @og_image = @pin.image.icon.url
-  end
-
-  def is_public?(pin)
-    pin.status.eql? 'public'
   end
 
   def is_star?

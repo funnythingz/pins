@@ -36,10 +36,10 @@
             a.hatena-bookmark-button data-hatena-bookmark-layout="simple-balloon" data-hatena-bookmark-title="#{@pin.title}" href="http://b.hatena.ne.jp/entry/#{url_encode @og_url}" title="このエントリーをはてなブックマークに追加"
               img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style=("border: none;") width="20"
             script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript"
-      ul.list-inline
-        - @pin.favorite.each do |favorite|
-          li
-            .thumbnail
-              = link_to member_path(favorite.user.id)
-                /TODO: avator
-                = image_tag favorite.user.profile, :'data-src' => 'holder.js/100x100', size: '100x100', alt: favorite.user.nickname
+    ul.list-inline
+      - @pin.favorite.each do |favorite|
+        li
+          .thumbnail
+            = link_to member_path(favorite.user.id)
+              /TODO: avator
+              = image_tag favorite.user.profile, :'data-src' => 'holder.js/100x100', size: '100x100', alt: favorite.user.nickname

@@ -22,4 +22,12 @@ class Pin < ActiveRecord::Base
       errors.add :image, "#{IMAGE_MIN_WIDTH}x#{IMAGE_MIN_HEIGHT}ピクセル以上のサイズの画像をアップロードしてください" if image.geometry[:width] < IMAGE_MIN_WIDTH || image.geometry[:height] < IMAGE_MIN_HEIGHT
     end
   end
+
+  def is_public?
+    status.eql? 'public'
+  end
+
+  def is_private?
+    status.eql? 'private'
+  end
 end
