@@ -14,13 +14,13 @@
         .col-md-2
           ul.count-list.list-unstyled
             li
-              = link_to '#'
-                .fa.fa-thumb-tack
-                |  3
-            li
               = link_to pin_favorites_path(@pin.id)
                 .fa.fa-star
                 |  #{@pin.favorite.size}
+            li
+              = link_to '#'
+                .fa.fa-th
+                |  3
 
       .row
         .col-md-10

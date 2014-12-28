@@ -7,10 +7,14 @@
   .status-list
     ul.list-inline
       li
-        = link_to '#'
+        = link_to my_path
           .fa.fa-thumb-tack
-          |  99
+          |  #{current_user.pin.size}
+      li
+        = link_to my_favorites_path
+          .fa.fa-star
+          |  #{current_user.favorite.size}
       li
         = link_to '#'
-          .fa.fa-star
-          |  11
+          .fa.fa-th
+          |  0

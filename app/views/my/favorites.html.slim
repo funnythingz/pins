@@ -27,10 +27,10 @@
               = favorite.pin.title
             ul.list-inline
               li
-                = link_to '#'
-                  .fa.fa-thumb-tack
-                  |  dummy
-              li
                 = link_to pin_favorites_path(favorite.pin.id)
                   .fa.fa-star
                   |  #{favorite.pin.favorite.size}
+              li
+                = link_to '#'
+                  .fa.fa-th
+                  |  dummy
