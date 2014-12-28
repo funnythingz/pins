@@ -1,0 +1,24 @@
+.container
+
+  = render partial: 'notice'
+
+  .row
+    .col-md-12
+      = render partial: 'hero_area'
+
+  = render partial: 'my_navigation'
+
+  .row
+    .col-md-8
+      = simple_form_for(current_user, as: :user, url: registration_path(:user), html: { method: :put }) do |f|
+        = f.error_notification
+        .form-inputs
+          = f.input :email, required: true, autofocus: true
+          = f.input :nickname, required: true
+          = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
+          = f.input :password_confirmation, required: false
+          = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
+        .form-actions
+          = f.button :submit, "Update", class: 'btn btn-default pull-right'
+    .col-md-4
+      = render partial: 'edit_profile_navigation'

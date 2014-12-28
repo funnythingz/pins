@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   get     '/my',                      to: 'my#my',            as: 'my'
   get     '/my/favorites',            to: 'my#favorites',     as: 'my_favorites'
   get     '/my/profile',              to: 'my#profile',       as: 'profile'
-  get     '/my/profile/edit',         to: 'my#edit_profile',  as: 'edit_profile'
+  get     '/my/profile/edit_user',    to: 'my#edit_user',     as: 'edit_user'
+  get     '/my/profile/edit_detail',  to: 'my#edit_profile',  as: 'edit_profile'
 
   # member
   get     '/member/:id',              to: 'member#member',    as: 'member'

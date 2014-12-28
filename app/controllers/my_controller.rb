@@ -12,6 +12,10 @@ class MyController < ApplicationController
     @favorites = current_user.favorite.order(created_at: :desc)
   end
 
+  def edit_user
+    @og_site = "Edit user"
+  end
+
   def edit_profile
     @og_site = "Edit profile"
   end
