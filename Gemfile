@@ -1,12 +1,10 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 gem 'rails', '~> 4.2.0'
 gem 'rake', '~> 10.4.2'
 gem 'mysql2'
 gem 'sass-rails', '~> 5.0.0.beta1'
-#gem 'compass-rails'
-gem 'rails-assets-compass-mixins'
+gem 'compass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'slim-rails'
 gem "rack-pjax"
