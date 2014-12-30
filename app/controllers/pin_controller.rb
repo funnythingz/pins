@@ -89,18 +89,20 @@ class PinController < ApplicationController
   end
 
   def put_favorite
-    if @favorite.present?
-      @favorite.destroy
-    else
-      Favorite.create(user_id: current_user.id, pin_id: params[:pin_id])
+    if user_signed_in?
+      if @favorite.present?
+        @favorite.destroy
+      else
+        Favorite.create(user_id: current_user.id, pin_id: params[:pin_id])
+      end
+      @pin = Pin.find_by(id: params[:pin_id])
     end
-    @pin = Pin.find_by(id: params[:pin_id])
   end
 
   private
 
   def set_favorite
-    @favorite = current_user.favorite.find_by(pin_id: params[:pin_id])
+    @favorite = current_user.favorite.find_by(pin_id: params[:pin_id]) if user_signed_in?
   end
 
   def permit_params_pin

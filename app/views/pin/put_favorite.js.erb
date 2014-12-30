@@ -1,2 +1,6 @@
-$('#put-star').toggleClass('active');
-$('#tip-star').html("<%= @pin.favorite.size %>");
+<% if user_signed_in? %>
+    $('#put-star').toggleClass('active');
+    $('#tip-star').html("<%= @pin.favorite.size %>");
+<% else %>
+    location.href = "<%= login_path %>";
+<% end %>
