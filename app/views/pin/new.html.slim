@@ -16,8 +16,16 @@
 
   = simple_form_for(Pin.new, url: create_pin_path, html: {class: 'form-horizontal' }) do |f|
     /TODO: drag & drop upload
-    = f.file_field :image, required: true, label: 'Image'
+    = f.input :image, required: true, label: 'Image', class: 'file', input_html: {id: 'upload-image', :'data-preview-file-type' => 'text'}
     = f.input :title, required: true, label: 'Title'
     = f.input :description, as: :text, required: true, label: 'Description', input_html: {rows: 5}
     = f.input :status, collection: [['public', 'public'], ['private', 'private']], as: :select, item_wrapper_tag: 'li', required: true, prompt: false
     = f.button :submit, class: 'btn btn-primary pull-right'
+
+javascript:
+  $('#upload-image').fileinput({
+    showUpload: false,
+    showPreview: true,
+    allowedFileExtensions: ['jpg'],
+    previewFileType: 'image'
+  });
