@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 gem 'rails', '~> 4.2.0'
 gem 'rake', '~> 10.4.2'
@@ -14,6 +15,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "rails_config"
+
+# assets
+gem 'rails-assets-bootstrap-fileinput'
 
 # decorate
 gem 'draper', '~> 1.3'
