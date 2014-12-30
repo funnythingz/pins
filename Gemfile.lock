@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:funnythingz/compass-rails.git
+  revision: 4cad5b51d1f45a63d247c59987f79c99adb24439
+  branch: pre-2.1.0
+  specs:
+    compass-rails (2.1.0)
+      compass (~> 1.0.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -76,8 +84,6 @@ GEM
       sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
-    compass-rails (2.0.1)
-      compass (~> 1.0.0)
     database_cleaner (1.3.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
@@ -291,7 +297,7 @@ DEPENDENCIES
   byebug
   cancancan
   carrierwave
-  compass-rails
+  compass-rails (~> 2.1.0)!
   database_cleaner
   devise
   draper (~> 1.3)
