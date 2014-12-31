@@ -26,7 +26,6 @@ class Profile < ActiveRecord::Base
   def check_hero_dimensions
     if hero.geometry.present?
       Rails.logger.info "hero upload dimensions: #{hero.geometry[:width]}x#{hero.geometry[:height]}"
-      binding.pry
       errors.add :hero, "#{HERO_MIN_WIDTH}x#{HERO_MIN_HEIGHT}ピクセル以上のサイズの画像をアップロードしてください" if hero.geometry[:width] < HERO_MIN_WIDTH || hero.geometry[:height] < HERO_MIN_HEIGHT
     end
   end
