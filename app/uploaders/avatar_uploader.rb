@@ -11,8 +11,4 @@ class AvatarUploader < ImageUploader
   version :icon do
     process :resize_to_fill => [24, 24]
   end
-
-  def extension_white_list
-    %w(jpg jpeg png)
-  end
 end

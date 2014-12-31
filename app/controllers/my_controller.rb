@@ -17,9 +17,7 @@ class MyController < ApplicationController
   end
 
   def update_user
-    user_params = params.required(:user).permit(:email, :username, :current_password, :password, :password_confirmation)
-
-    if current_user.update_with_password(user_params)
+    if current_user.update_with_password(set_user)
       sign_in current_user, bypass: true
       flash_message = { success: 'Updated' }
     else
@@ -45,7 +43,11 @@ class MyController < ApplicationController
 
   private
 
+  def set_user
+    params.required(:user).permit(:email, :username, :current_password, :password, :password_confirmation)
+  end
+
   def set_profile
-    params.require(:profile).permit(:profile, :avatar)
+    params.require(:profile).permit(:profile, :avatar, :hero)
   end
 end

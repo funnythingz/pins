@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206081134) do
+ActiveRecord::Schema.define(version: 20141231173553) do
 
-  create_table "favorites", force: true do |t|
+  create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.integer  "pin_id",     limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
-  create_table "pins", force: true do |t|
+  create_table "pins", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.text     "description", limit: 65535
     t.string   "image",       limit: 255
@@ -30,15 +30,16 @@ ActiveRecord::Schema.define(version: 20141206081134) do
     t.string   "status",      limit: 255
   end
 
-  create_table "profiles", force: true do |t|
+  create_table "profiles", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.text     "profile",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "avatar",     limit: 255
+    t.string   "hero",       limit: 255
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
