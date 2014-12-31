@@ -23,12 +23,13 @@ Rails.application.routes.draw do
   post    '/pin/favorite(.:format)',  to: 'pin#put_favorite', as: 'put_favorite'
 
   # my
-  get     '/my',                      to: 'my#my',            as: 'my'
-  get     '/my/favorites',            to: 'my#favorites',     as: 'my_favorites'
-  get     '/my/profile',              to: 'my#profile',       as: 'profile'
-  get     '/my/profile/edit_user',    to: 'my#edit_user',     as: 'edit_user'
-  put     '/my/profile/update_user',  to: 'my#update_user',   as: 'update_user'
-  get     '/my/profile/edit_detail',  to: 'my#edit_profile',  as: 'edit_profile'
+  get     '/my',                        to: 'my#my',              as: 'my'
+  get     '/my/favorites',              to: 'my#favorites',       as: 'my_favorites'
+  get     '/my/profile',                to: 'my#profile',         as: 'profile'
+  get     '/my/profile/edit_user',      to: 'my#edit_user',       as: 'edit_user'
+  put     '/my/profile/update_user',    to: 'my#update_user',     as: 'update_user'
+  get     '/my/profile/edit_profile',   to: 'my#edit_profile',    as: 'edit_profile'
+  put     '/my/profile/update_profile', to: 'my#update_profile',  as: 'update_profile'
 
   # member
   get     '/member/:id',              to: 'member#member',    as: 'member'

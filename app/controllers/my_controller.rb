@@ -32,4 +32,20 @@ class MyController < ApplicationController
   def edit_profile
     @og_site = "Edit profile"
   end
+
+  def update_profile
+    respond_to do |format|
+      if current_user.profile.update(set_profile)
+        format.html { redirect_to :back, flash: { success: 'updated YEAH!' } }
+      else
+        format.html { redirect_to :back, flash: { errors: current_user.profile.errors.messages } }
+      end
+    end
+  end
+
+  private
+
+  def set_profile
+    params.require(:profile).permit(:profile, :avatar)
+  end
 end

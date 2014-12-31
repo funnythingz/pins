@@ -10,5 +10,17 @@
 
   .row
     .col-md-8
+      = simple_form_for(current_user.profile, as: :profile, url: update_profile_path, html: { method: :put }) do |f|
+        = f.input :avatar, required: false, label: 'Avatar', class: 'file', input_html: { id: 'upload-avatar', :'data-preview-file-type' => 'text' }
+        = f.input :profile, required: false, autofocus: true
+        = f.button :submit, "Update", class: 'btn btn-default pull-right'
     .col-md-4
       = render partial: 'edit_profile_navigation'
+
+javascript:
+  $('#upload-avatar').fileinput({
+    showUpload: false,
+    showPreview: true,
+    allowedFileExtensions: ['jpg', 'jpeg', 'png'],
+    previewFileType: 'image'
+  });

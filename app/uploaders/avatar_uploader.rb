@@ -2,50 +2,56 @@
 
 class AvatarUploader < CarrierWave::Uploader::Base
 
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
-  # Choose what kind of storage to use for this uploader:
+  process :resize_to_fill => [96, 96]
+
+  version :thumb do
+    process :resize_to_fill => [48, 48]
+  end
+
+  version :icon do
+    process :resize_to_fill => [24, 24]
+  end
+
+  def extension_white_list
+    %w(jpg jpeg png)
+  end
+
+  process convert: 'jpg'
   storage :file
-  # storage :fog
 
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+  def filename
+    "#{secure_token}.#{file.extension}" if original_filename.present?
+  end
 
-  # Process files as they are uploaded:
-  # process :scale => [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
+  def geometry
+    @geometry ||= get_geometry
+  end
 
-  # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+  def get_geometry
+    if @file.present?
+      image = MiniMagick::Image.open(@file.file)
+      { width: image[:width], height: image[:height] }
+    end
+  end
 
-  # Add a white list of extensions which are allowed to be uploaded.
-  # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+  def fix_exif_rotation
+    manipulate! do |img|
+      img.tap(&:auto_orient)
+    end
+  end
 
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  process :fix_exif_rotation
+
+  protected
+  def secure_token
+    token = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(token) or model.instance_variable_set(token, SecureRandom.uuid)
+  end
 
 end
