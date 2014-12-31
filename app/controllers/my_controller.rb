@@ -16,6 +16,19 @@ class MyController < ApplicationController
     @og_site = "Edit user"
   end
 
+  def update_user
+    user_params = params.required(:user).permit(:email, :username, :current_password, :password, :password_confirmation)
+
+    if current_user.update_with_password(user_params)
+      sign_in current_user, bypass: true
+      flash_message = { success: 'Updated' }
+    else
+      flash_message = { errors: current_user.errors.messages }
+    end
+
+    redirect_to :back, flash: flash_message
+  end
+
   def edit_profile
     @og_site = "Edit profile"
   end

@@ -3,7 +3,16 @@
     strong
       | #{flash[:success]}
 
-  - if flash[:error].present?
-    .alert.alert-error role="alert"
-      strong
-        | #{flash[:error]}
+- if flash[:error].present?
+  .alert.alert-danger role="alert"
+    strong
+      | #{flash[:error]}
+
+- if flash[:errors].present?
+  .alert.alert-danger
+    ul.list-unstyled role="alert"
+      - flash[:errors].each do |error_list|
+        - error_list[1].each do |error|
+          li
+            span.glyphicon.glyphicon-exclamation-sign aria-hidden="true"
+            |  #{error_list[0]} is #{error}
