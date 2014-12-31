@@ -1,7 +1,7 @@
 /TOOD: hero
-.hero-area style="background-image: url(#{current_user.profile.hero.url})"
+.hero-area style="background-image: url(#{current_user.profile.hero.url.presence || dummy_image(1140, 315)})"
   .thumbnail
-    = image_tag current_user.profile.avatar.url, :'data-src' => 'holder.js/96x96', size: '96x96', alt: current_user.nickname
+    = image_tag (current_user.profile.avatar.url.presence || dummy_image(96, 96)), :'data-src' => 'holder.js/96x96', size: '96x96', alt: current_user.nickname
   h1.nickname
     = current_user.nickname
   .status-list
