@@ -1,8 +1,13 @@
 class MemberController < ApplicationController
-  before_action :set_member, only: [:member]
+  before_action :set_member, only: [:member, :favorites]
 
   def member
     @pins = @member.pin.order(created_at: 'DESC')
+  end
+
+  def favorites
+    @og_site = "#{@member.nickname}'s favorites"
+    @favorites = @member.favorite.order(created_at: :desc)
   end
 
   private

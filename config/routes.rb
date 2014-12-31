@@ -33,5 +33,6 @@ Rails.application.routes.draw do
 
   # member
   get     '/member/:id',              to: 'member#member',    as: 'member'
+  get     '/member/:id/favorites',    to: 'member#favorites', as: 'member_favorites'
 
 end

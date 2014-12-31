@@ -1,20 +1,12 @@
-- provide(:title, @member.nickname)
-
 .container
 
-  - if flash[:success].present?
-    .alert.alert-success role="alert"
-      strong
-        | #{flash[:success]}
-
-  - if flash[:error].present?
-    .alert.alert-error role="alert"
-      strong
-        | #{flash[:error]}
+  = render partial: 'shared/notice'
 
   .row
     .col-md-12
       = render partial: 'hero_area'
+
+  = render partial: 'member_navigation'
 
   ul.list-inline
     - @pins.each do |pin|
@@ -28,10 +20,10 @@
                 = pin.title
               ul.list-inline
                 li
-                  = link_to '#'
-                    .fa.fa-thumb-tack
-                    |  dummy
-                li
-                  = link_to '#'
+                  = link_to pin_favorites_path(pin.id)
                     .fa.fa-star
                     |  #{pin.favorite.size}
+                li
+                  = link_to '#'
+                    .fa.fa-th
+                    |  dummy

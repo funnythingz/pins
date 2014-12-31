@@ -1,0 +1,21 @@
+.row.member-data
+  .col-md-12
+    ul.nav.nav-tabs
+      li role="presentation"
+        = active_link_to member_path, wrap_tag: :li, active: :exclusive
+          .fa.fa-thumb-tack
+          | Pins
+          span.count
+          | #{@member.pin.size}
+      li role="presentation"
+        = active_link_to member_favorites_path, wrap_tag: :li, active: :exclusive
+          .fa.fa-star
+          |  Favorites
+          span.count
+          | #{@member.favorite.size}
+      li role="presentation"
+        = active_link_to '#', wrap_tag: :li, active: :exclusive
+          .fa.fa-th
+          |  Boards
+          span.count
+          |  0

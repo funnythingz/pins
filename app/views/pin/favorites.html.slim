@@ -41,5 +41,4 @@
         li
           .thumbnail
             = link_to member_path(favorite.user.id)
-              /TODO: avator
-              = image_tag favorite.user.profile, :'data-src' => 'holder.js/100x100', size: '100x100', alt: favorite.user.nickname
+              = image_tag (favorite.user.profile.avatar.url.presence || dummy_image(96, 96)), :'data-src' => 'holder.js/96x96', size: '96x96', alt: favorite.user.nickname

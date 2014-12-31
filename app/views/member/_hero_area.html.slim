@@ -1,16 +1,19 @@
-/TODO: hero
-/.hero-area style="background-image: url(#{@member.profile.hero.url})"
+.hero-area style="background-image: url(#{@member.profile.hero.url.presence || dummy_image(1140, 315)})"
   .thumbnail
-    = image_tag @member.profile.avatar.url, :'data-src' => 'holder.js/100x100', size: '100x100', alt: @member.nickname
+    = image_tag (@member.profile.avatar.url.presence || dummy_image(96, 96)), :'data-src' => 'holder.js/96x96', size: '96x96', alt: @member.nickname
   h1.nickname
-    | #{@member.nickname}
+    = @member.nickname
   .status-list
     ul.list-inline
       li
-        = link_to '#'
+        = link_to member_path
           .fa.fa-thumb-tack
-          |  99
+          |  #{@member.pin.size}
+      li
+        = link_to member_favorites_path
+          .fa.fa-star
+          |  #{@member.favorite.size}
       li
         = link_to '#'
-          .fa.fa-star
-          |  11
+          .fa.fa-th
+          |  0
