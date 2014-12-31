@@ -11,8 +11,8 @@
         .col-md-10
           h1
             = f.input_field :title, class: 'input_title form-control'
-        .col-md-2
-          ul.count-list.list-unstyled
+        .col-md-2.text-center
+          ul.count-list.list-unstyled.list-inline
             li
               = link_to pin_favorites_path(@pin.id)
                 .fa.fa-star
@@ -26,8 +26,8 @@
         .col-md-10
           .text-center.spacing
             = image_tag @pin.image.url, :'data-src' => "holder.js/#{@pin.image.geometry[:width]}x#{@pin.image.geometry[:height]}", size: "#{@pin.image.geometry[:width]}x#{@pin.image.geometry[:height]}", alt: @pin.title, class: 'img-thumbnail'
-        .col-md-2
-          ul.list-unstyled.config-menu
+        .col-md-2.text-center
+          ul.list-unstyled.config-menu.list-inline
             li.spacing
               = link_to pin_path, target: '_blank', method: :get
                 button.btn.btn-default
