@@ -23,10 +23,6 @@
         = active_link_to profile_path, wrap_tag: :li
           i.fa.fa-user-md
           |  Profile
-      li role="presentation"
-        = active_link_to registration_path(:user), wrap_tag: :li, active: :exclusive, data: { confirm: "Are you sure?" }, method: :delete
-          i.fa.fa-trash-o
-          |  remove account
   .col-md-4.text-right
     = link_to new_pin_path, class: 'btn btn-default'
       i.fa.fa-picture-o

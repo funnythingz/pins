@@ -5,3 +5,6 @@
   = active_link_to edit_user_path, active: :exclusive, class: 'list-group-item'
     i.fa.fa-user
     |  Edit User
+  = active_link_to registration_path(:user), active: :exclusive, data: { confirm: "Are you sure?" }, method: :delete, class: 'list-group-item'
+    i.fa.fa-trash-o
+    |  remove account
