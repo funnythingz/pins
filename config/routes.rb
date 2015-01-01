@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   delete  '/pin/:id(.:format)',       to: 'pin#destroy',      as: 'destroy_pin'
   post    '/pin/favorite(.:format)',  to: 'pin#put_favorite', as: 'put_favorite'
 
+  # TODO: boards
+
   # my
   get     '/my',                        to: 'my#my',              as: 'my'
   get     '/my/favorites',              to: 'my#favorites',       as: 'my_favorites'
