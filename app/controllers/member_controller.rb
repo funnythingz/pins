@@ -7,13 +7,13 @@ class MemberController < ApplicationController
 
   def favorites
     @og_site = "#{@member.nickname}'s favorites"
-    @favorites = @member.favorite.order(created_at: :desc)
   end
 
   private
 
   def set_member
     @member = User.find(params[:id])
+    @favorites = @member.favorite.joins(:pin).merge(Pin.where(status: 'public')).order(created_at: :desc)
     @og_site = @member.nickname
     @og_url = member_url(@member.id)
     @og_type = 'article'

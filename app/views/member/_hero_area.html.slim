@@ -12,7 +12,7 @@
       li
         = link_to member_favorites_path
           .fa.fa-star
-          |  #{@member.favorite.size}
+          |  #{if @favorites.nil? then 0 else @favorites.size}
       li
         = link_to '#'
           .fa.fa-th

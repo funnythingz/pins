@@ -12,7 +12,7 @@
           .fa.fa-star
           |  Favorites
           span.count
-          | #{@member.favorite.size}
+          |  #{if @favorites.nil? then 0 else @favorites.size}
       li role="presentation"
         = active_link_to '#', wrap_tag: :li, active: :exclusive
           .fa.fa-th
