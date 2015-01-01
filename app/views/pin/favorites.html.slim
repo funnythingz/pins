@@ -4,6 +4,8 @@
     h1
       .row
         .col-md-11
+          = link_to pin_path
+            = image_tag (@pin.image.url.presence || dummy_image(96, 96)), :'data-src' => 'holder.js/96x96', size: '96x96', alt: @pin.title
           .fa.fa-star
           = @pin.favorite.size
         .col-md-1.text-right
