@@ -1,10 +1,11 @@
 GIT
-  remote: git@github.com:funnythingz/compass-rails.git
-  revision: 4cad5b51d1f45a63d247c59987f79c99adb24439
-  branch: pre-2.1.0
+  remote: git@github.com:Compass/compass-rails.git
+  revision: 4d1e2ba2c7f5632283930d28bd8dc674bc4223d2
   specs:
-    compass-rails (2.1.0)
+    compass-rails (2.0.1)
       compass (~> 1.0.0)
+      sass-rails (<= 5.0.1)
+      sprockets (< 2.13)
 
 GEM
   remote: https://rubygems.org/
@@ -135,7 +136,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_magick (4.0.1)
-    mini_portile (0.6.1)
+    mini_portile (0.6.2)
     minitest (5.5.0)
     multi_json (1.10.1)
     mysql2 (0.3.17)
@@ -272,7 +273,7 @@ GEM
     typescript-src (1.0.1.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.6.0)
+    uglifier (2.6.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     validates_email_format_of (1.6.1)
@@ -297,7 +298,7 @@ DEPENDENCIES
   byebug
   cancancan
   carrierwave
-  compass-rails (~> 2.1.0)!
+  compass-rails (~> 2.0.1)!
   database_cleaner
   devise
   draper (~> 1.3)
