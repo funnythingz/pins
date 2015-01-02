@@ -8,7 +8,6 @@ gem 'sass-rails', '~> 5.0.1'
 gem 'compass-rails', '~> 2.0.1', git: 'git@github.com:Compass/compass-rails.git'
 gem 'uglifier', '>= 1.3.0'
 gem 'slim-rails'
-gem "rack-pjax"
 
 gem 'jquery-rails', '~> 4.0.2'
 gem 'jbuilder', '~> 2.0'
