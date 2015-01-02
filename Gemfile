@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+ruby '2.1.5'
+
 gem 'rails', '~> 4.2.0'
 gem 'rake', '~> 10.4.2'
 gem 'mysql2'
 gem 'sass-rails', '~> 5.0.1'
-gem 'compass-rails', '~> 2.0.1', git: 'git@github.com:Compass/compass-rails.git'
+gem 'compass-rails', '~> 2.0.1', git: 'https://github.com/Compass/compass-rails.git'
 gem 'uglifier', '>= 1.3.0'
 gem 'slim-rails'
 
@@ -33,7 +35,8 @@ gem 'enum_help'
 gem 'simple_form', '~> 3.1.0.rc1'
 
 # byStar
-gem 'by_star'
+gem 'by_star', git: 'https://github.com/radar/by_star.git'
+gem 'chronic'
 
 # JS
 gem 'bower-rails'
