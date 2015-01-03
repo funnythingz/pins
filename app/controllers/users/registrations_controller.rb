@@ -36,9 +36,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    # TODO: 404
+  end
 
   # PUT /resource
   # def update
