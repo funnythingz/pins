@@ -1,1 +1,1 @@
-Slim::Engine.set_default_options format: :html
+Slim::Engine.set_options format: :html
