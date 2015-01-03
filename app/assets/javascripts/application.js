@@ -10,8 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery/dist/jquery.min
-//= require underscore/underscore-min
+//= require jquery
+//= require underscore
 //= require jquery_ujs
 //= require bootstrap-fileinput
 //= require_tree .

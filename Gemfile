@@ -19,6 +19,8 @@ gem "rails_config"
 
 # assets
 gem 'rails-assets-bootstrap-fileinput'
+gem 'rails-assets-jquery'
+gem 'rails-assets-underscore'
 
 # decorate
 gem 'draper', '~> 1.3'
@@ -75,4 +77,9 @@ end
 group :test do
   gem 'faker'
   gem 'database_cleaner'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
