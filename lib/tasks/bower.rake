@@ -2,7 +2,7 @@
 namespace :bower do
   desc "Run `bower install --p` after assets:precompile"
   task :install do
-    sh "npm install bower"
+    sh "rake bower:install"
   end
 end
 
