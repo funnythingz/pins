@@ -40,9 +40,6 @@ gem 'simple_form', '~> 3.1.0.rc1'
 gem 'by_star', git: 'https://github.com/radar/by_star.git'
 gem 'chronic'
 
-# JS
-gem 'bower-rails'
-
 # Image
 gem 'carrierwave'
 gem "mini_magick"
