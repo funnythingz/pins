@@ -4,3 +4,10 @@
     margin-left: 4px;
   }
 }
+
+.list-inline {
+  > li {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
