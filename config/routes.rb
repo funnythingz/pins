@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   # my
   get     '/my',                        to: 'my#my',              as: 'my'
   get     '/my/favorites',              to: 'my#favorites',       as: 'my_favorites'
+  get     '/my/boards',                 to: 'my#boards',          as: 'my_boards'
   get     '/my/profile',                to: 'my#profile',         as: 'profile'
   get     '/my/profile/edit_user',      to: 'my#edit_user',       as: 'edit_user'
   put     '/my/profile/update_user',    to: 'my#update_user',     as: 'update_user'
