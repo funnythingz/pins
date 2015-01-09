@@ -11,6 +11,10 @@ class MyController < ApplicationController
     @og_site = "#{current_user.nickname}'s favorites"
   end
 
+  def boards
+    @og_site = "#{current_user.nickname}'s boards"
+  end
+
   def edit_user
     @og_site = "Edit user"
   end
