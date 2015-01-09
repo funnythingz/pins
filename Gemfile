@@ -21,6 +21,7 @@ gem "rails_config"
 gem 'rails-assets-bootstrap-fileinput'
 gem 'rails-assets-jquery'
 gem 'rails-assets-underscore'
+gem 'rails-assets-components-font-awesome'
 
 # decorate
 gem 'draper', '~> 1.3'
