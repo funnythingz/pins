@@ -10,5 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require styles
+ *= require 'bootstrap'
+ *= require 'bootswatch/cyborg/bootstrap'
+ *= require 'components-font-awesome'
+ *= require 'styles'
  */

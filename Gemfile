@@ -22,6 +22,10 @@ gem 'rails-assets-bootstrap-fileinput'
 gem 'rails-assets-jquery'
 gem 'rails-assets-underscore'
 gem 'rails-assets-components-font-awesome'
+gem 'rails-assets-bootstrap'
+gem 'rails-assets-bootswatch'
+gem 'rails-assets-bootstrap-fileinput'
+
 
 # decorate
 gem 'draper', '~> 1.3'

@@ -13,5 +13,6 @@
 //= require jquery
 //= require underscore
 //= require jquery_ujs
+//= require bootstrap
 //= require bootstrap-fileinput
 //= require_tree .
